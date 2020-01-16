@@ -5,7 +5,78 @@ comment
 */
 
 .fancy-header {
-    color: purple; /* single line comment */
+    color: greenyellow; /* single line comment */
     text-decoration: underline;
 }
 
+#main-header {
+    text-align: center;
+    color: gold; /* single line comment */
+    text-decoration: underline;
+}
+
+body {
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 200%;
+    background-color: black;
+    background-image: url("../img/veridian_background.jpeg");
+    background-position: center;
+    background-size: 1000px 700px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.vision {
+    height: 350px;
+    width: 550px;
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: lower-roman;
+}
+
+table, th, td {
+    color: aliceblue;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 7px;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #888;
+}
+
+tr:nth-child(odd) {
+    background-color: #555;
+}
+
+#quality_guarantee {
+    font-style: italic;
+}
+
+a:link {
+    color: yellow;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    color: blue;
+}
+
+a:active {
+    color: red;
+}
