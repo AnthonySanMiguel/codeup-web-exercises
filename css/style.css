@@ -15,38 +15,51 @@ comment
     text-decoration: underline;
 }
 
+#slogan {
+    text-align: center;
+}
+
 body {
     color: white;
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 200%;
     background-color: black;
-    background-image: url("../img/veridian_background.jpeg");
-    background-position: center;
-    background-size: 1000px 700px;
-    background-attachment: fixed;
+    background-image: url("../img/veridian_background.jpg");
+    background-position: top;
+    background-position-y: 215px;
+    background-size: 900px 600px;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .vision {
-    height: 350px;
-    width: 550px;
+    height: 300px;
+    width: 500px;
+    float: left;
 }
 
-ul {
-    list-style: square;
+ul#core_values {
+    list-style-image: url("../img/veridian_bullet.png");
 }
 
 ol {
     list-style: lower-roman;
 }
 
+#products {
+    padding-top: 630px;
+}
+
 table, th, td {
     color: aliceblue;
     border-collapse: collapse;
+    border-color: darkorange;
+    border-style: solid;
+    width: 700px;
 }
 
 th, td {
-    padding: 7px;
+    padding: 6px;
 }
 
 td {
@@ -63,6 +76,13 @@ tr:nth-child(odd) {
 
 #quality_guarantee {
     font-style: italic;
+    color: fuchsia;
+    font-size: 110%;
+}
+
+#return_top {
+    font-size: 100%;
+    text-decoration: none;
 }
 
 a:link {
