@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/bonuses/html_forms/property-search_style.css"/>
+    <title>Property Search</title>
+</head>
+<body>
+<main>
+    <form action="https://request-inspector.glitch.me" method="POST">
+        <label for="property_type">Property Type</label>
+        <input id="property_type" name="property_type" type="text" required  autofocus="autofocus"/>
+        <br/>
+        <label for="square_footage">Square Footage</label>
+        <input id="square_footage" name="square_footage" type="number" required />
+        <br/>
+        <label for="min_price">Minimum Price</label>
+        <input id="min_price" name="min_price" type="number" required />
+        <br/>
+        <label for="max_price">Maximum Price</label>
+        <input id="max_price" name="max_price" type="number" required />
+        <br/>
+        <label for="zipcode">Zipcode</label>
+        <input id="zipcode" name="zipcode" type="number" required />
+        <br/>
+        <label for="number_of_bedrooms">Number of Bedrooms</label>
+        <input id="number_of_bedrooms" name="number_of_bedrooms" type="number" required />
+        <br/>
+        <label for="number_of_bathrooms">Number of Bathrooms</label>
+        <input id="number_of_bathrooms" name="number_of_bathrooms" type="number" required />
+        <br/>
+        <button type="submit">Search Now</button>
+    </form>
+</main>
+</body>
+</html>

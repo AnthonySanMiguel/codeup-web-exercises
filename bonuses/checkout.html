@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/bonuses/checkout_style.css"/>
+    <title>Checkout</title>
+</head>
+<body>
+<main>
+    <form action="https://request-inspector.glitch.me" method="POST">
+        <label for="cc_number">Credit Card Number</label>
+        <input id="cc_number" name="cc_number" type="number" required  autofocus="autofocus"/>
+        <br/>
+        <label for="cc_expiration">Expiration Month/Year</label>
+        <input id="cc_expiration" name="cc_expiration" type="month" required/>
+        <br/>
+        <label for="cc_security_code">Security Code</label>
+        <input id="cc_security_code" name="cc_security_code" type="number" required/>
+        <br/>
+        <h3>Billing Address</h3>
+        <label for="street">Street</label>
+        <input id="street" name="street" type="text" required/>
+        <br/>
+        <label for="city">City</label>
+        <input id="city" name="city" type="text" required/>
+        <br/>
+        <label for="state">State</label>
+        <input id="state" name="state" type="text" required/>
+        <br/>
+        <label for="zipcode">Zipcode</label>
+        <input id="zipcode" name="zipcode" type="number" required/>
+        <br>
+        <br>
+        <label for="keep_cc_info"></label>
+        <input type=checkbox id="keep_cc_info" name="keep_cc_info">Keep information on file for future transactions
+        <br>
+        <br>
+        <button type="submit">Buy Now!</button>
+    </form>
+</main>
