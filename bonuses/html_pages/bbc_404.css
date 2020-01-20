@@ -10,22 +10,27 @@ body {
     width: 5em;
     margin-left: 17%;
     margin-top: .1em;
+    border: none;
+}
+
+#top_logo_link {
+    border: none
 }
 
 #top_nav {
     font-weight: bold;
     float: right;
-    margin-right: 18%;
-    margin-top: .1em;
+    margin-right: 16.8%;
+    margin-top: .3em;
 }
 
 .page_links {
-    border-left: .1em solid darkgray;
     float: left;
-    margin-right: .8em;
-    padding-left: .8em;
     font-size: small;
-    line-height: 2em;
+}
+
+.sounds {
+    border-right: .1em solid darkgray;
 }
 
 #error_banner {
@@ -53,6 +58,7 @@ body {
 #sorry {
     font-size: larger;
 }
+
 input {
     width: 18em;
     height: 2em;
@@ -63,10 +69,44 @@ input {
 
 a {
     text-decoration: none;
-    color: #4945b6;
+    color: black;
+    border-left: .1em solid darkgray;
+    padding-left: .8em;
+    padding-right: .8em;
+    padding-bottom: .4em;
 }
 
-a:hover {
+.home:hover {
+    border-bottom: .308em solid #7ba0c3;
+}
+
+.news:hover {
+    border-bottom: .308em solid #bb1919;
+}
+
+.sport:hover {
+    border-bottom: .308em solid #fbd133;
+}
+
+.weather:hover {
+    border-bottom: .308em solid #88cbee;
+}
+
+.iplayer:hover {
+    border-bottom: .308em solid #ec5096;
+}
+
+.sounds:hover {
+    border-bottom: .308em solid #ed462f;
+}
+
+.bbc_homepage {
+    text-decoration: none;
+    color: #4945b6;
+    border: none;
+}
+
+.bbc_homepage:hover {
     color: #4945b6;
     text-decoration: underline;
 }
