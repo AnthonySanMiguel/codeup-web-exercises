@@ -63,4 +63,10 @@ input {
 
 a {
     text-decoration: none;
+    color: #4945b6;
+}
+
+a:hover {
+    color: #4945b6;
+    text-decoration: underline;
 }
