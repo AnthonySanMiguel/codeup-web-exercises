@@ -43,7 +43,7 @@ body {
     background-color: #4945b6;
     font-size: large;
     color: white;
-    width: 100%;
+    width: 83%;
     height: 4em;
 }
 
@@ -109,4 +109,36 @@ a {
 .bbc_homepage:hover {
     color: #4945b6;
     text-decoration: underline;
+}
+
+#bottom_nav_bar {
+    background-color: #4c4c4c;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-size: smaller;
+    height: 8%;
+    padding-top: 2em;
+}
+
+#read_external, .footer_links {
+    border: none;
+    color: white;
+}
+
+#read_external:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer_text {
+    position: absolute;
+    text-align: left;
+    padding-left: 16.5%;
+    bottom: 0;
+    width: 83%;
+    color: white;
+    font-size: smaller;
 }
