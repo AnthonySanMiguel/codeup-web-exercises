@@ -25,10 +25,10 @@
             display: flex;
             flex-direction: row;
             /*justify-content: space-evenly;*/
-            height: 15em;
+            height: 10em;
             /*align-items: baseline;*/
-            flex-wrap: wrap;
-            align-content: center;
+            /*flex-wrap: wrap;*/
+            /*align-content: center;*/
         }
 
         .flex-item {
@@ -51,6 +51,53 @@
         /*#box-3 {*/
         /*    font-size: 45px;*/
         /*}*/
+/*-----------------------------------------------------------------*/
+
+        /*Uncomment to see an example of the "order" property
+          (default order for items not specified is 0)
+
+        #box-1 {*/
+        /*    order: 2;*/
+        /*}*/
+
+        /*#box-2 {*/
+        /*    !*order: 1;*!*/
+        /*}*/
+
+        /*#box-3 {*/
+        /*    order: 1;*/
+        /*}*/
+/*-----------------------------------------------------------------*/
+
+        /*Uncomment to see an example of the "align-self:" property
+
+        #box-1 {*/
+        /*    align-self: flex-start;*/
+        /*}*/
+
+        /*#box-2 {*/
+        /*    align-self: ;*/
+        /*}*/
+
+        /*#box-3 {*/
+        /*    align-self: flex-end;*/
+        /*}*/
+
+/*-----------------------------------------------------------------*/
+
+        /*Uncomment to see an example of the "flex-grow:" property*/
+
+        /*#box-1 {*/
+        /*    flex-grow: 1;*/
+        /*}*/
+
+        /*#box-2 {*/
+        /*    flex-grow: 2;*/
+        /*}*/
+
+        /*#box-3 {*/
+        /*    flex-grow: 3;*/
+        /*} */
 
     </style>
 </head>
@@ -66,34 +113,15 @@
 <h3>Flexbox Examples</h3>
 
 <div class="flex-container">
-<!--    <div class="flex-item" id="box-1">Item 1</div>-->
-<!--    <div class="flex-item" id="box-2">Item 2</div>-->
-<!--    <div class="flex-item" id="box-3">Item 3</div>-->
+    <div class="flex-item" id="box-1">Item 1</div>
+    <div class="flex-item" id="box-2">Item 2</div>
+    <div class="flex-item" id="box-3">Item 3</div>
 
     <!-- Abbreviation that we can use!	-->
     <!-- Example: will create 17 <div>s with a class of 'flex.item'
          with text "flex item" within each element, numbered.
 
          div.flex-item#${flex item $}*17  == *make sure to hit TAB after 17-->
-
-    <div class="flex-item" id="1">flex item 1</div>
-    <div class="flex-item" id="2">flex item 2</div>
-    <div class="flex-item" id="3">flex item 3</div>
-    <div class="flex-item" id="4">flex item 4</div>
-    <div class="flex-item" id="5">flex item 5</div>
-    <div class="flex-item" id="6">flex item 6</div>
-    <div class="flex-item" id="7">flex item 7</div>
-    <div class="flex-item" id="8">flex item 8</div>
-    <div class="flex-item" id="9">flex item 9</div>
-    <div class="flex-item" id="10">flex item 10</div>
-    <div class="flex-item" id="11">flex item 11</div>
-    <div class="flex-item" id="12">flex item 12</div>
-    <div class="flex-item" id="13">flex item 13</div>
-    <div class="flex-item" id="14">flex item 14</div>
-    <div class="flex-item" id="15">flex item 15</div>
-    <div class="flex-item" id="16">flex item 16</div>
-    <div class="flex-item" id="17">flex item 17</div>
-
 </div>
 
 <!--
