@@ -1,19 +1,20 @@
 nav {
     box-sizing: border-box;
-    border: none;
+    padding: 1.5em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #c1c1c1;
-    font-weight: bold;
+    font-size: small;
 }
 
 a {
     display: inline-block;
     text-decoration: none;
     color: black;
-    padding: 0 1em;
-
+    margin: 0 .5em;
+    position: relative;
+    z-index: 10;
 }
 
 a:hover {
@@ -23,32 +24,37 @@ a:hover {
 #links_left {
     display: flex;
     font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
 }
 
 #logo {
     font-size: 3em;
-    padding-top: .2em;
-    padding-bottom: .2em;
-    alignment: center;
-    display: flex;
+    padding: .2em 0;
     font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    text-align: center;
+    font-weight: lighter;
 }
 
 #links_right {
     display: flex;
     font-family: 'Work Sans', sans-serif;
     margin-left: 1em;
-    margin-right: 1em;
 }
 
 .follow_us {
     display: flex;
     align-self: center;
     padding-right: 0;
+    font-weight: bold;
 }
 
 .icons {
-    height: 2em;
-    width: 2em;
-    margin-left: 1em;
+    height: 1.2em;
+    width: 1.2em;
+    margin-left: .5em;
+    position: relative;
+    z-index: 10;
 }
