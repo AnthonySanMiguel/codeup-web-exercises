@@ -145,12 +145,9 @@ section:nth-of-type(6) {
     background: grey;
     width: 3em;
     height: 3em;
-    display: flex;
     align-self: center;
 }
 
 .grey-box:nth-of-type(odd) {
     height: 4em;
-    align-self: flex-end;
-    display: flex;
 }
