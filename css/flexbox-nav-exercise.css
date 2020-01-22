@@ -1,0 +1,54 @@
+nav {
+    box-sizing: border-box;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c1c1c1;
+    font-weight: bold;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 0 1em;
+
+}
+
+a:hover {
+    color: blue;
+}
+
+#links_left {
+    display: flex;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#logo {
+    font-size: 3em;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    alignment: center;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#links_right {
+    display: flex;
+    font-family: 'Work Sans', sans-serif;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.follow_us {
+    display: flex;
+    align-self: center;
+    padding-right: 0;
+}
+
+.icons {
+    height: 2em;
+    width: 2em;
+    margin-left: 1em;
+}
