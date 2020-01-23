@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-nav {
+#header_nav {
     box-sizing: border-box;
     padding: 1.0em 0;
     display: flex;
@@ -17,21 +17,20 @@ a {
     text-decoration: none;
     color: black;
     margin: 0 .5em;
-    position: relative;
-    z-index: 10;
+    z-index: 1;
 }
 
 a:hover {
     color: blue;
 }
 
-#links_left {
+#header_links_left {
     display: flex;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
 }
 
-#logo {
+#header_logo {
     font-size: 3em;
     font-family: 'Montserrat', sans-serif;
     position: absolute;
@@ -42,7 +41,7 @@ a:hover {
     padding-bottom: .15em;
 }
 
-#links_right {
+#header_links_right {
     display: flex;
     font-family: 'Work Sans', sans-serif;
     margin-left: 1em;
@@ -59,6 +58,35 @@ a:hover {
     height: 1.2em;
     width: 1.2em;
     margin-left: .5em;
-    position: relative;
-    z-index: 10;
+    z-index: 1;
+}
+
+#footer_nav {
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+#footer_logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+#footer_links {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+
+.footer_icons {
+    height: 1.2em;
+    width: 1.2em;
+}
+
+#copyright {
+    display: flex;
+    justify-content: center;
+    color: gray;
 }
