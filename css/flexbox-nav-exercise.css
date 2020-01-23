@@ -1,6 +1,10 @@
+body {
+    margin: 0;
+}
+
 nav {
     box-sizing: border-box;
-    padding: 1.5em 0;
+    padding: 1.0em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,13 +33,13 @@ a:hover {
 
 #logo {
     font-size: 3em;
-    padding: .2em 0;
     font-family: 'Montserrat', sans-serif;
     position: absolute;
     height: inherit;
     width: 100%;
     text-align: center;
     font-weight: lighter;
+    padding-bottom: .15em;
 }
 
 #links_right {
@@ -51,7 +55,7 @@ a:hover {
     font-weight: bold;
 }
 
-.icons {
+.header_icons {
     height: 1.2em;
     width: 1.2em;
     margin-left: .5em;
