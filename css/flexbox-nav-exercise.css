@@ -61,28 +61,47 @@ a:hover {
     z-index: 1;
 }
 
-#footer_nav {
-    background-color: lightgrey;
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
     font-weight: bold;
+    color: white;
+}
+
+footer a {
+    color: white;
 }
 
 #footer_logo {
     font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
-    font-size: x-large;
+    font-weight: lighter;
+    font-size: 3em;
+    margin-left: .5em;
 }
 
 #footer_links {
     font-family: 'Work Sans', sans-serif;
     font-weight: lighter;
-    display: flex;
-    justify-content: center;
     font-size: small;
+    padding: 2em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer_icons {
-    height: 1.2em;
-    width: 1.2em;
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.footer_last_icon {
+    margin-right: 1.5em;
+}
+
+#hr_break {
+    border: 1px solid darkgray;
 }
 
 #copyright {
