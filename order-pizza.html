@@ -15,9 +15,9 @@
 <!------------------------------------------------------------------------------------>
 <body>
 
-<!--NAV BAR START-->
+<!--HEADER NAV BAR START-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand navbar-text" href="#">Pizza World</a>
+    <a class="navbar-brand" href="#">Pizza World</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,12 +28,12 @@
                 <a class="navbar-text" href="#">Order online<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Menu</a>
+                <a class="nav-link text-body" href="#">Menu</a>
             </li>
             <li>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
-                    <button class="btn btn-outline-secondary bg-white" type="submit">Search stores near you!</button>
+                    <button class="btn btn-light btn-outline-secondary" type="submit">Search stores near you!</button>
                 </form>
             </li>
         </ul>
@@ -42,8 +42,7 @@
         </nav>
     </div>
 </nav>
-<!--NAV BAR END-->
-
+<!--HEADER NAV BAR END-->
 <!------------------------------------------------------------------------------------>
 <!--JUMBOTRON START-->
 <div class="container">
@@ -57,30 +56,31 @@
 </div>
 <!--JUMBOTRON END-->
 <!------------------------------------------------------------------------------------>
-<!--TABS START-->
+<!--PIZZA BUILD TABS: START-->
 <h2 class="container">Build your own pizza!</h2>
 
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs container" id="myTab" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" id="size_and_crust" data-toggle="tab" href="#size_and_crust_page" role="tab" aria-controls="size_and_crust"
+        <a class="nav-link active" id="size_and_crust_tab" data-toggle="tab" href="#size_and_crust_page" role="tab"
+           aria-controls="size_and_crust"
            aria-selected="true"><span class="badge-pill badge-secondary mr-sm-1">1</span>Size and Crust</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="cheese_and_sauce" data-toggle="tab" href="#cheese_and_sauce_page" role="tab" aria-controls="cheese_and_sauce"
+        <a class="nav-link" id="cheese_and_sauce_tab" data-toggle="tab" href="#cheese_and_sauce_page" role="tab"
+           aria-controls="cheese_and_sauce"
            aria-selected="false"><span class="badge-pill badge-secondary mr-sm-1">2</span>Cheese and Sauce</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="toppings" data-toggle="tab" href="#toppings_page" role="tab" aria-controls="toppings"
+        <a class="nav-link" id="toppings_tab" data-toggle="tab" href="#toppings_page" role="tab" aria-controls="toppings"
            aria-selected="false"><span class="badge-pill badge-secondary mr-sm-1">3</span>Toppings</a>
     </li>
 </ul>
 <div class="tab-content" id="myTabContent">
 
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-<!--TABS END-->
-<!------------------------------------------------------------------------------------>
-<!-------------------------SIZE & CRUST----------------------------------->
+    <div class="tab-pane fade show active" id="size_and_crust_page" role="tabpanel" aria-labelledby="size_and_crust_page">
+        <!--PIZZA BUILD TABS: END-->
+        <!------------------------------------------------------------------------------------>
+        <!-------------------------SIZE & CRUST----------------------------------->
 
         <!--ORDER CARD START-->
         <div class="container p-0 border-left border-right">
@@ -163,9 +163,9 @@
         <!--ORDER CARD END-->
     </div>
 
-    <div class="tab-pane fade" id="#" role="tabpanel" aria-labelledby="profile-tab">
-<!------------------------------------------------------------------------------------>
-<!-------------------------CHEESE & SAUCE----------------------------------->
+    <div class="tab-pane fade" id="cheese_and_sauce_page" role="tabpanel" aria-labelledby=cheese_and_sauce>
+        <!------------------------------------------------------------------------------------>
+        <!-------------------------CHEESE & SAUCE----------------------------------->
 
         <!--ORDER CARD START-->
         <div class="container p-0 border-left border-right">
@@ -237,11 +237,11 @@
         <!------------------------------------------------------------------------------------>
     </div>
 
-    <div class="tab-pane fade" id="#size_and_crust" role="tabpanel" aria-labelledby="size_and_crust">
-<!------------------------------------------------------------------------------------>
-<!------------------------------TOPPINGS---------------------------------------->
+    <div class="tab-pane fade" id="toppings_page" role="tabpanel" aria-labelledby="toppings">
+        <!------------------------------------------------------------------------------------>
+        <!------------------------------TOPPINGS---------------------------------------->
 
-<!--ORDER CARD START-->
+        <!--ORDER CARD START-->
         <div class="container p-0 border-left border-right">
             <div class="card">
                 <div class="card-header bg-primary text-white">
@@ -303,6 +303,7 @@
         </div>
         <!--ORDER CARD END-->
     </div>
+
 </div>
 <!--TABS END-->
 <!------------------------------------------------------------------------------------>
