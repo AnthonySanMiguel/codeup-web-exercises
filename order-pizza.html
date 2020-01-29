@@ -14,6 +14,7 @@
 </head>
 <!------------------------------------------------------------------------------------>
 <body>
+
 <!--NAV BAR START-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand navbar-text" href="#">Pizza World</a>
@@ -42,6 +43,7 @@
     </div>
 </nav>
 <!--NAV BAR END-->
+
 <!------------------------------------------------------------------------------------>
 <!--JUMBOTRON START-->
 <div class="container">
@@ -57,335 +59,252 @@
 <!------------------------------------------------------------------------------------>
 <!--TABS START-->
 <h2 class="container">Build your own pizza!</h2>
-<ul class="nav nav-tabs container">
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" href="#"><span class="badge-pill badge-secondary mr-sm-1">1</span>Size and Crust</a>
+        <a class="nav-link active" id="size_and_crust" data-toggle="tab" href="#size_and_crust_page" role="tab" aria-controls="size_and_crust"
+           aria-selected="true"><span class="badge-pill badge-secondary mr-sm-1">1</span>Size and Crust</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge-pill badge-secondary mr-sm-1">2</span>Cheese and Sauce</a>
+        <a class="nav-link" id="cheese_and_sauce" data-toggle="tab" href="#cheese_and_sauce_page" role="tab" aria-controls="cheese_and_sauce"
+           aria-selected="false"><span class="badge-pill badge-secondary mr-sm-1">2</span>Cheese and Sauce</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge-pill badge-secondary mr-sm-1">3</span>Toppings</a>
+        <a class="nav-link" id="toppings" data-toggle="tab" href="#toppings_page" role="tab" aria-controls="toppings"
+           aria-selected="false"><span class="badge-pill badge-secondary mr-sm-1">3</span>Toppings</a>
     </li>
 </ul>
+<div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 <!--TABS END-->
 <!------------------------------------------------------------------------------------>
 <!-------------------------SIZE & CRUST----------------------------------->
-<!--ORDER CARD START-->
-<div class="container p-0 border-left border-right">
-    <div class="card">
-        <div class="card-header bg-primary text-white">
-            Choose size and crust
-        </div>
-    </div>
-    <!--INNER CARD 1 HEADER: START-->
-    <div class="card m-3">
-        <div class="card-header bg-light text-body">
-            Hand Tossed
-        </div>
-        <div class="card-header bg-white text-body">
-            Garlic seasoned crust with a rich, buttery taste.
-        </div>
-        <!--INNER CARD 1 HEADER: END-->
 
-        <!--INNER CARD 1 RADIO BUTTONS: START-->
-        <div class="card-header bg-white">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="small_hand_tossed" id="small_hand_tossed"
-                       value="small_hand_tossed">
-                <label class="form-check-label" for="small_hand_tossed">
-                    Small (10")
-                </label>
+        <!--ORDER CARD START-->
+        <div class="container p-0 border-left border-right">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Choose size and crust
+                </div>
             </div>
-        </div>
-        <div class="card-header bg-white">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="medium_hand_tossed" id="medium_hand_tossed"
-                       value="medium_hand_tossed">
-                <label class="form-check-label" for="medium_hand_tossed">
-                    Medium (12")
-                </label>
-            </div>
-        </div>
-    </div>
-    <!--INNER CARD 1 RADIO BUTTONS: END-->
+            <!--INNER CARD 1 HEADER: START-->
+            <div class="card m-3">
+                <div class="card-header bg-light text-body">
+                    Hand Tossed
+                </div>
+                <div class="card-header bg-white text-body">
+                    Garlic seasoned crust with a rich, buttery taste.
+                </div>
+                <!--INNER CARD 1 HEADER: END-->
 
-    <!--INNER CARD 2 HEADER: START-->
-    <div class="card m-3">
-        <div class="card-header bg-light text-body">
-            Crispy Thin
-        </div>
-        <div class="card-header bg-white text-body">
-            Thin enough for optimum crispy to crunchy ratio.
-        </div>
-        <!--INNER CARD 1 HEADER: END-->
+                <!--INNER CARD 1 RADIO BUTTONS: START-->
+                <div class="card-header bg-white">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="small_hand_tossed" id="small_hand_tossed"
+                               value="small_hand_tossed">
+                        <label class="form-check-label" for="small_hand_tossed">
+                            Small (10")
+                        </label>
+                    </div>
+                </div>
+                <div class="card-header bg-white">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="medium_hand_tossed" id="medium_hand_tossed"
+                               value="medium_hand_tossed">
+                        <label class="form-check-label" for="medium_hand_tossed">
+                            Medium (12")
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--INNER CARD 1 RADIO BUTTONS: END-->
 
-        <!--INNER CARD 1 RADIO BUTTONS: START-->
-        <div class="card-header bg-white">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="medium_crispy" id="medium_crispy"
-                       value="medium_crispy">
-                <label class="form-check-label" for="medium_crispy">
-                    Medium (12")
-                </label>
+            <!--INNER CARD 2 HEADER: START-->
+            <div class="card m-3">
+                <div class="card-header bg-light text-body">
+                    Crispy Thin
+                </div>
+                <div class="card-header bg-white text-body">
+                    Thin enough for optimum crispy to crunchy ratio.
+                </div>
+                <!--INNER CARD 1 HEADER: END-->
+
+                <!--INNER CARD 1 RADIO BUTTONS: START-->
+                <div class="card-header bg-white">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="medium_crispy" id="medium_crispy"
+                               value="medium_crispy">
+                        <label class="form-check-label" for="medium_crispy">
+                            Medium (12")
+                        </label>
+                    </div>
+                </div>
+                <div class="card-header bg-white">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="large_crispy" id="large_crispy"
+                               value="large_crispy">
+                        <label class="form-check-label" for="large_crispy">
+                            Large (14")
+                        </label>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="card-header bg-white">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="large_crispy" id="large_crispy"
-                       value="large_crispy">
-                <label class="form-check-label" for="large_crispy">
-                    Large (14")
-                </label>
+            <!--INNER CARD 2 RADIO BUTTONS: END-->
+
+            <!--NEXT BUTTON: START-->
+            <div class="card-body bg-light text-right border-top border-bottom mb-4">
+                <a href="#" class="btn btn-primary">Next Step ></a>
             </div>
+            <!--NEXT BUTTON: END-->
+
         </div>
+        <!--ORDER CARD END-->
     </div>
-    <!--INNER CARD 2 RADIO BUTTONS: END-->
-    <!--NEXT BUTTON: START-->
-    <div class="card-body bg-light text-right border-top border-bottom mb-4">
-        <a href="#" class="btn btn-primary">Next Step ></a>
-    </div>
-    <!--NEXT BUTTON: END-->
-</div>
-<!--ORDER CARD END-->
+
+    <div class="tab-pane fade" id="#" role="tabpanel" aria-labelledby="profile-tab">
 <!------------------------------------------------------------------------------------>
 <!-------------------------CHEESE & SAUCE----------------------------------->
-<!--NAV BAR START-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand navbar-text" href="#">Pizza World</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="navbar-text" href="#">Order online<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Menu</a>
-            </li>
-            <li>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
-                    <button class="btn btn-outline-secondary bg-white" type="submit">Search stores near you!</button>
-                </form>
-            </li>
-        </ul>
-        <nav>
-            <img src="img/male-placeholder.png" alt="#" id="sign_in_avatar" class="mr-auto"><a href="#"> Sign up</a>
-        </nav>
-    </div>
-</nav>
-<!--NAV BAR END-->
-<!------------------------------------------------------------------------------------>
-<!--JUMBOTRON START-->
-<div class="container">
-    <div class="d-none d-md-block">
-        <div class="jumbotron jumbotron-fluid">
-            <div id="jumbotron_container">
-                <h1 class="display-4">Welcome to Pizza World!</h1>
+
+        <!--ORDER CARD START-->
+        <div class="container p-0 border-left border-right">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Choose Cheese and Sauce
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-<!--JUMBOTRON END-->
-<!------------------------------------------------------------------------------------>
-<!--TABS START-->
-<h2 class="container">Build your own pizza!</h2>
-<ul class="nav nav-tabs container">
-    <li class="nav-item">
-        <a class="nav-link active" href="#"><span class="badge-pill badge-secondary mr-sm-1">1</span>Size and Crust</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge-pill badge-secondary mr-sm-1">2</span>Cheese and Sauce</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge-pill badge-secondary mr-sm-1">3</span>Toppings</a>
-    </li>
-</ul>
-<!--TABS END-->
-<!--ORDER CARD START-->
-<div class="container p-0 border-left border-right">
-    <div class="card">
-        <div class="card-header bg-primary text-white">
-            Choose Cheese and Sauce
-        </div>
-    </div>
-    <!--INNER CARD 1 HEADER: START-->
-    <div class="card m-3">
-        <div class="card-header bg-light text-body">
-            Cheese
-        </div>
-        <div class="card-body bg-white text-body pb-0">
-            How Much?
-        </div>
-        <!--INNER CARD 1 HEADER: END-->
+            <!--INNER CARD 1 HEADER: START-->
+            <div class="card m-3">
+                <div class="card-header bg-light text-body">
+                    Cheese
+                </div>
+                <div class="card-body bg-white text-body pb-0">
+                    How Much?
+                </div>
+                <!--INNER CARD 1 HEADER: END-->
 
-        <!--INNER CARD 1 CHEESE DROPDOWN: START-->
-        <select class="form-control m-3 w-auto" name="cheese_amount">
-            <option value="light">Light</option>
-            <option value="normal">Normal</option>
-            <option value="extra">Extra</option>
-            <option value="double">Double</option>
-        </select>
-    </div>
+                <!--INNER CARD 1 CHEESE DROPDOWN: START-->
+                <select class="form-control m-3 w-auto" name="cheese_amount">
+                    <option value="light">Light</option>
+                    <option value="normal">Normal</option>
+                    <option value="extra">Extra</option>
+                    <option value="double">Double</option>
+                </select>
+            </div>
 
-    <!--INNER CARD 1 CHEESE DROPDOWN: END-->
+            <!--INNER CARD 1 CHEESE DROPDOWN: END-->
 
-    <!--INNER CARD 2 HEADER: START-->
-    <div class="card m-3">
-        <div class="card-header bg-light text-body">
-            Sauce
+            <!--INNER CARD 2 HEADER: START-->
+            <div class="card m-3">
+                <div class="card-header bg-light text-body">
+                    Sauce
+                </div>
+                <div class="card-body bg-white text-body pb-0">
+                    What Type?
+                </div>
+                <!--INNER CARD 2 HEADER: END-->
+
+                <!--INNER CARD 2 SAUCE DROPDOWNS: START-->
+                <select class="form-control m-3 w-auto" name="sauce_type">
+                    <option value="tomato">Tomato Sauce</option>
+                    <option value="marinara">Marinara Sauce</option>
+                    <option value="bbq">BBQ Sauce</option>
+                    <option value="alfredo">Alfredo Sauce</option>
+                </select>
+                <div class="card-body bg-white text-body pt-0 pb-0">
+                    How Much?
+                </div>
+
+                <select class="form-control m-3 w-auto" name="sauce_amount">
+                    <option value="light">Light</option>
+                    <option value="normal">Normal</option>
+                    <option value="extra">Extra</option>
+                </select>
+            </div>
+
+            <!--INNER CARD 2 SAUCE DROPDOWNS: END-->
+
+            <!--NEXT BUTTON: START-->
+            <div class="card-body bg-light border-top border-bottom text-right mb-4" role="group">
+                <a href="#" class="btn btn-primary">< Previous Step</a>
+                <a href="#" class="btn btn-primary">Next Step ></a>
+            </div>
+            <!--NEXT BUTTON: END-->
+
         </div>
-        <div class="card-body bg-white text-body pb-0">
-            What Type?
-        </div>
-        <!--INNER CARD 2 HEADER: END-->
-
-        <!--INNER CARD 2 SAUCE DROPDOWNS: START-->
-        <select class="form-control m-3 w-auto" name="sauce_type">
-            <option value="tomato">Tomato Sauce</option>
-            <option value="marinara">Marinara Sauce</option>
-            <option value="bbq">BBQ Sauce</option>
-            <option value="alfredo">Alfredo Sauce</option>
-        </select>
-        <div class="card-body bg-white text-body pt-0 pb-0">
-            How Much?
-        </div>
-
-        <select class="form-control m-3 w-auto" name="sauce_amount">
-            <option value="light">Light</option>
-            <option value="normal">Normal</option>
-            <option value="extra">Extra</option>
-        </select>
+        <!--ORDER CARD END-->
+        <!------------------------------------------------------------------------------------>
     </div>
 
-    <!--INNER CARD 2 SAUCE DROPDOWNS: END-->
-    <!--NEXT BUTTON: START-->
-    <div class="card-body bg-light border-top border-bottom text-right mb-4" role="group">
-        <a href="#" class="btn btn-primary">< Previous Step</a>
-        <a href="#" class="btn btn-primary">Next Step ></a>
-    </div>
-    <!--NEXT BUTTON: END-->
-</div>
-<!--ORDER CARD END-->
+    <div class="tab-pane fade" id="#size_and_crust" role="tabpanel" aria-labelledby="size_and_crust">
 <!------------------------------------------------------------------------------------>
 <!------------------------------TOPPINGS---------------------------------------->
-<!--NAV BAR START-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand navbar-text" href="#">Pizza World</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="navbar-text" href="#">Order online<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Menu</a>
-            </li>
-            <li>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
-                    <button class="btn btn-outline-secondary bg-white" type="submit">Search stores near you!</button>
-                </form>
-            </li>
-        </ul>
-        <nav>
-            <img src="img/male-placeholder.png" alt="#" id="sign_in_avatar" class="mr-auto"><a href="#"> Sign up</a>
-        </nav>
-    </div>
-</nav>
-<!--NAV BAR END-->
-<!------------------------------------------------------------------------------------>
-<!--JUMBOTRON START-->
-<div class="container">
-    <div class="d-none d-md-block">
-        <div class="jumbotron jumbotron-fluid">
-            <div id="jumbotron_container">
-                <h1 class="display-4">Welcome to Pizza World!</h1>
-            </div>
-        </div>
-    </div>
-</div>
-<!--JUMBOTRON END-->
-<!------------------------------------------------------------------------------------>
-<!--TABS START-->
-<h2 class="container">Build your own pizza!</h2>
-<ul class="nav nav-tabs container">
-    <li class="nav-item">
-        <a class="nav-link active" href="#"><span class="badge-pill badge-secondary mr-sm-1">1</span>Size and Crust</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge-pill badge-secondary mr-sm-1">2</span>Cheese and Sauce</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#"><span class="badge-pill badge-secondary mr-sm-1">3</span>Toppings</a>
-    </li>
-</ul>
-<!--TABS END-->
+
 <!--ORDER CARD START-->
-<div class="container p-0 border-left border-right">
-    <div class="card">
-        <div class="card-header bg-primary text-white">
-            Choose Toppings
-        </div>
-    </div>
-    <!--INNER CARD 1 HEADER: START-->
-    <div class="card m-3">
-        <div class="card-header bg-light text-body">
-            Choose Meats
-        </div>
-        <!--INNER CARD 1 HEADER: END-->
+        <div class="container p-0 border-left border-right">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Choose Toppings
+                </div>
+            </div>
+            <!--INNER CARD 1 HEADER: START-->
+            <div class="card m-3">
+                <div class="card-header bg-light text-body">
+                    Choose Meats
+                </div>
+                <!--INNER CARD 1 HEADER: END-->
 
-        <!--INNER CARD 1 MEAT DROPDOWN: START-->
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="meat_selection">Beef
-        </div>
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="meat_selection">Ham
-        </div>
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="meat_selection">Philly Steak
-        </div>
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="meat_selection">Bacon
-        </div>
-    </div>
-    <!--INNER CARD 1 MEAT DROPDOWN: END-->
+                <!--INNER CARD 1 MEAT DROPDOWN: START-->
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="meat_selection">Beef
+                </div>
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="meat_selection">Ham
+                </div>
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="meat_selection">Philly Steak
+                </div>
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="meat_selection">Bacon
+                </div>
+            </div>
+            <!--INNER CARD 1 MEAT DROPDOWN: END-->
 
-    <!--INNER CARD 2 HEADER: START-->
-    <div class="card m-3">
-        <div class="card-header bg-light text-body">
-            Choose Non-Meats
-        </div>
-        <!--INNER CARD 2 HEADER: END-->
+            <!--INNER CARD 2 HEADER: START-->
+            <div class="card m-3">
+                <div class="card-header bg-light text-body">
+                    Choose Non-Meats
+                </div>
+                <!--INNER CARD 2 HEADER: END-->
 
-        <!--INNER CARD 2 NON-MEAT DROPDOWN: START-->
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="non_meat_selection">Green Peppers
+                <!--INNER CARD 2 NON-MEAT DROPDOWN: START-->
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="non_meat_selection">Green Peppers
+                </div>
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="non_meat_selection">Mushrooms
+                </div>
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="non_meat_selection">Onions
+                </div>
+                <div class="form-check card-header bg-white ml-3">
+                    <input class="form-check-input" type="checkbox" value="non_meat_selection">Jalapeno Peppers
+                </div>
+            </div>
+            <!--INNER CARD 2 NON-MEAT DROPDOWN: END-->
+
+            <!--NEXT BUTTON: START-->
+            <div class="card-body bg-light border-top border-bottom text-right mb-4" role="group">
+                <a href="#" class="btn btn-primary">Checkout <i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <!--NEXT BUTTON: END-->
+
         </div>
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="non_meat_selection">Mushrooms
-        </div>
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="non_meat_selection">Onions
-        </div>
-        <div class="form-check card-header bg-white ml-3">
-            <input class="form-check-input" type="checkbox" value="non_meat_selection">Jalapeno Peppers
-        </div>
+        <!--ORDER CARD END-->
     </div>
-    <!--INNER CARD 2 NON-MEAT DROPDOWN: END-->
-    <!--NEXT BUTTON: START-->
-    <div class="card-body bg-light border-top border-bottom text-right mb-4" role="group">
-        <a href="#" class="btn btn-primary">Checkout <i class="fas fa-shopping-cart"></i></a>
-    </div>
-    <!--NEXT BUTTON: END-->
 </div>
-<!--ORDER CARD END-->
+<!--TABS END-->
 <!------------------------------------------------------------------------------------>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
