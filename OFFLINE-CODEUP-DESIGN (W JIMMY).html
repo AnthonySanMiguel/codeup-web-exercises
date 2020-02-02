@@ -140,24 +140,53 @@
             margin-left: 1em;
         }
         .nav-sm-items span {
-
         }
         .small {
             display: none;
         }
-        /*// Extra small devices (portrait phones, under 576px)*/
-        @media (min-width: 576px) {
+        /*// Extra small devices (portrait phones, less than 576px)*/
+        @media (max-width: 575.98px) {
+            .extra_small {
+                display: block;
+            }
+            .small {
+                display: none;
+            }
+        }
+        /*// Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) and (max-width: 767.98px) {
             .extra_small {
                 display: none;
             }
             .small {
                 display: block;
             }
-        }
-        /*// Small devices (landscape phones, 768px and up)*/
-        @media (min-width: 768px) {
-            .small {
+            .medium {
                 display: none;
+            }
+        }
+        /*// Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .extra_small {
+                display: none;
+            }
+            .small {
+                display: block;
+            }
+            .medium {
+                display: block;
+            }
+        }
+        /*// Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .large {
+                display: block;
+            }
+        }
+        /*// Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+            .x_large {
+                display: block;
             }
         }
     </style>
@@ -257,7 +286,7 @@
         SELECTED WORK
     </div>
 
-    <div class="col-4 text-left px-0 hide_xs hide_small">
+    <div class="col-4 text-left px-0 small medium">
         THE LAST
     </div>
 </div>
@@ -289,7 +318,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6 hide_xs">
+            <div class="col-sm-6 small medium">
                 <img src="images/macbook.jpg" alt="" class="image-list">
                 <div class=" mt-1 text-left ">
                     Featured project
@@ -311,7 +340,7 @@
             </div>
         </div>
 
-        <div class="row hide_xs">
+        <div class="row small medium">
             <div class="col-sm-6">
                 <img src="images/man.jpg" alt="" class="image-list">
                 <div class=" mt-1 text-left ">
@@ -333,7 +362,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-6 small medium">
                 <img src="images/security.jpg" alt="" class="image-list">
                 <div class=" mt-1 text-left ">
                     Featured project
@@ -360,7 +389,7 @@
     <!---------------------IMAGES ROW: END------------------------------------------->
 
     <!---------------------SIDEBAR: START------------------------------------------->
-    <div class="col-md-4 hide_xs hide_small">
+    <div class="col-md-4 small medium">
         <div class="card">
             <div class="card-body">
                 <div class="row">
