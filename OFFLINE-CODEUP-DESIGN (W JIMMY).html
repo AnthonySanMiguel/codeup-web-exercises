@@ -51,14 +51,11 @@
         .main-blue_button {
             background-color: #00ABA9;
         }
-        .section-line-height {
-            line-height: 5em;
-        }
         .image-list {
             border: solid .2em #e6e6e6;
             border-radius: 2%;
             width: 100%;
-            height: auto
+            height: auto;
         }
         .side_images {
             border: solid .2em #e6e6e6;
@@ -90,7 +87,7 @@
             display: inline-block;
             margin: 1em 1em;
         }
-        #logo {
+        .logo {
             height: calc(105px + .5em);
             width: calc(105px + .5em);
             margin: 0 auto;
@@ -99,8 +96,11 @@
         p {
             font-size: 46px;
         }
-        #selected_work_row {
+        .selected_work_row {
             line-height: 6em;
+        }
+        #the_last_alignment {
+            margin-left: 25%;
         }
         .card-body {
             background-color: #f0f0f0;
@@ -139,8 +139,6 @@
             font-family: 'Abel', sans-serif;
             margin-left: 1em;
         }
-        .nav-sm-items span {
-        }
         .small {
             display: none;
         }
@@ -152,6 +150,12 @@
             .small {
                 display: none;
             }
+            .medium {
+                display: none;
+            }
+            .selected_centered {
+                display: block;
+            }
         }
         /*// Small devices (landscape phones, 576px and up)*/
         @media (min-width: 576px) and (max-width: 767.98px) {
@@ -162,6 +166,12 @@
                 display: block;
             }
             .medium {
+                display: none;
+            }
+            .selected_centered {
+                display: block;
+            }
+            .selected_last_both {
                 display: none;
             }
         }
@@ -176,18 +186,42 @@
             .medium {
                 display: block;
             }
-        }
-        /*// Large devices (desktops, 992px and up)*/
-        @media (min-width: 992px) and (max-width: 1199.98px) {
-            .large {
-                display: block;
+            .selected_centered {
+                display: none;
             }
         }
-        /*// Extra large devices (large desktops, 1200px and up)*/
-        @media (min-width: 1200px) {
-            .x_large {
-                display: block;
-            }
+        /*//Large devices (desktops, 992px and up)*/
+            @media (min-width: 992px) and (max-width: 1199.98px) {
+                .extra_small {
+                    display: none;
+                }
+                .small {
+                    display: block;
+                }
+                .medium {
+                    display: block;
+                }
+                .selected_centered {
+                    display: none;
+                }
+        }
+        /*//Extra large devices (large desktops, 1200px and up)*/
+            @media (min-width: 1200px) {
+                .extra_small {
+                    display: none;
+                }
+                .small {
+                    display: block;
+                }
+                .medium {
+                    display: block;
+                }
+                .selected_centered {
+                    display: none;
+                }
+                .selected_last_both {
+                    display: block;
+                }
         }
     </style>
 
@@ -200,7 +234,7 @@
 <!---------------------NAVBAR EXTRA-SMALL: START------------------------------------------->
 <div class="row extra_small" id="navbar-row">
     <div class="col-12 text-center"></div>
-        <img src="images/logo.png" alt="#" id="logo"/>
+        <img src="images/logo.png" alt="codeup design logo" class="logo"/>
     </div>
 
 <div class="col-12 text-center extra_small">
@@ -227,7 +261,7 @@
     <div class="nav-sm-items m-auto small">
         <span>SERVICES</span>
         <span>WORK</span>
-        <span><img src="images/logo.png" alt="#" id="logo"/></span>
+        <span><img src="images/logo.png" alt="codeup design logo" class="logo"/></span>
         <span>BLOG</span>
         <span>CONTACT</span>
     </div>
@@ -280,15 +314,21 @@
 </div>
 <!---------------------BUTTON: END------------------------------------------->
 <hr>
-<!---------------------SELECTED WORK ROW: START------------------------------------------->
-<div class="row" id="selected_work_row">
-    <div class="col-8 text-left">
+<div class="selected_last_both ml-1 small selected_work_row">
+    <span>
+        SELECTED WORK
+    </span>
+
+    <span id="the_last_alignment">
+        THE LAST
+    </span>
+</div>
+
+<div class="row selected_centered mb-5 small selected_work_row">
+    <div class="col-12 text-center">
         SELECTED WORK
     </div>
 
-    <div class="col-4 text-left px-0 small medium">
-        THE LAST
-    </div>
 </div>
 <!---------------------SELECTED WORK ROW: END------------------------------------------->
 
@@ -298,8 +338,8 @@
         <div class="row">
 
             <div class="col-12 col-sm-6">
-                <img src="images/apple-ipad.jpg" alt="" class="image-list">
-                <div class=" mt-1 text-left ">
+                <img src="images/apple-ipad.jpg" alt="apple ipad" class="image-list">
+                <div class="mt-1 text-left">
                     Featured project
                     <div class="icons">
                         <div class="small-circle rounded-circle text-center small-red">
@@ -318,9 +358,9 @@
                 </div>
             </div>
 
-            <div class="col-sm-6 small medium">
-                <img src="images/macbook.jpg" alt="" class="image-list">
-                <div class=" mt-1 text-left ">
+            <div class="col-sm-6 small">
+                <img src="images/macbook.jpg" alt="macbook" class="image-list">
+                <div class="mt-1 text-left">
                     Featured project
                     <div class="icons">
                         <div class="small-circle rounded-circle text-center small-red">
@@ -340,10 +380,10 @@
             </div>
         </div>
 
-        <div class="row small medium">
-            <div class="col-sm-6">
-                <img src="images/man.jpg" alt="" class="image-list">
-                <div class=" mt-1 text-left ">
+        <div class="row">
+            <div class="col-sm-6 small">
+                <img src="images/man.jpg" alt="man with glasses" class="image-list">
+                <div class="mt-1 text-left">
                     Featured project
                     <div class="icons">
                         <div class="small-circle rounded-circle text-center small-red">
@@ -362,9 +402,9 @@
                 </div>
             </div>
 
-            <div class="col-sm-6 small medium">
-                <img src="images/security.jpg" alt="" class="image-list">
-                <div class=" mt-1 text-left ">
+            <div class="col-sm-6 small">
+                <img src="images/security.jpg" alt="security screen" class="image-list">
+                <div class="mt-1 text-left">
                     Featured project
                     <div class="icons">
                         <div class="small-circle rounded-circle text-center small-red">
@@ -396,8 +436,8 @@
 
                     <div class="card mb-3">
                         <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="images/mobile-phone.jpg" class="side_images" alt="#">
+                            <div class="col-md-3">
+                                <img src="images/mobile-phone.jpg" class="side_images" alt="mobile phone">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -409,8 +449,8 @@
 
                     <div class="card mb-3">
                         <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="images/head.jpg" class="side_images" alt="#">
+                            <div class="col-md-3">
+                                <img src="images/head.jpg" class="side_images" alt="polygon head">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -422,8 +462,8 @@
 
                     <div class="card mb-3">
                         <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="images/ipad.jpg" class="side_images" alt="#">
+                            <div class="col-md-3">
+                                <img src="images/ipad.jpg" class="side_images" alt="ipad">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
