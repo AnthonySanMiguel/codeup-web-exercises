@@ -76,6 +76,16 @@
     console.log(determineType(true)) // Expect: returns boolean
     console.log(determineType("hello")) // Expect: returns string
 
+    // Daily JS Exercise (Feb. 4 2020)
+
+    // WWrite a function that returns true or false based off whether the number passed, squared, is evenly divisible by 3.
+
+    function squaredDivByThree(num) {
+        return (num * num) % 3 === 0;
+    }
+    console.log(squaredDivByThree(3)) // Expect: returns true
+    console.log(squaredDivByThree(4)) // Expect: returns false
+
 </script>
 </body>
 </html>
