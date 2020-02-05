@@ -11,80 +11,107 @@
     <h1>Warmups</h1>
 <script>
 
-    // Daily JS Exercise (Jan. 16 2020)
+    // // Daily JS Exercise (Jan. 16 2020)
+    //
+    // function helloWorld() {
+    //     return "Hello World!";
+    // }
+    // console.log(helloWorld());
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Jan. 17 2020)
+    //
+    // function quotient(x,y) {
+    //     return x/y;
+    // }
+    // console.log(quotient(10,5));
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Jan. 21 2020)
+    //
+    // function helloName(name) {
+    //     return "Hello " + name;
+    // }
+    // console.log(helloName("Anthony"));
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Jan. 22 2020)
+    //
+    // function calculateRectangleArea(length, width) {
+    //     return length * width;
+    // }
+    // console.log(calculateRectangleArea(2, 2)); /*Expect "4"*/
+    // console.log(calculateRectangleArea(4, 5)); /*Expect "20"*/
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Jan. 23 2020)
+    //
+    // function arrayLength(array) {
+    //     return array.length;
+    // }
+    // console.log(arrayLength(["text", "text", "text", "text"]));
+    // /*Numbers in an array do not use quotation marks (""); text DOES*/
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Jan. 24 2020)
+    //
+    // function david_seven(x) {
+    //     return 7;
+    // }
+    // console.log(david_seven(8)); /*Expect: regardless of input, return will always be number 7*/
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Jan. 28 2020)
+    //
+    // //Write a function called firstItem that accepts an array and returns the first item of that array.
+    //
+    // function firstItem(array) {
+    //     return array[0];
+    // }
+    // console.log(firstItem(["dog", "cat", "fish", "bird", "fox"]));
+    // console.log(firstItem([1, 2, 3, 4]));
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Jan. 29 2020)
+    //
+    // // Write a function called determineType that accepts a single input, and returns the type of data that input is
+    //
+    // function determineType(x) {
+    //     return typeof x;
+    // }
+    // console.log(determineType(7)); // Expect: returns number
+    // console.log(determineType(true)); // Expect: returns boolean
+    // console.log(determineType("hello")); // Expect: returns string
+    //---------------------------------------------------------------
+    // // Daily JS Exercise (Feb. 4 2020)
+    //
+    // // Write a function that returns true or false based off whether the number passed, squared, is evenly divisible by 3.
+    //
+    // function squaredDivByThree(num) {
+    //     return (num * num) % 3 === 0;
+    // }
+    // console.log(squaredDivByThree(3)); // Expect: returns true
+    // console.log(squaredDivByThree(4)); // Expect: returns false
+    //---------------------------------------------------------------
+    // Daily JS Exercise (Feb. 5 2020)
 
-    function helloWorld() {
-        return "Hello World!";
-    }
-    console.log(helloWorld());
+    // Write a function called isString that accepts a single input, and returns true of the data type is a string or false if it is not a string.
 
-    // Daily JS Exercise (Jan. 17 2020)
+    //Instructor-provided solution:
 
-    function quotient(x,y) {
-        return x/y;
-    }
-    console.log(quotient(10,5));
+    // function isString(input) {
+    // return typeof input === "string";
+    // }
+    // console.log(isString(true));
+    // console.log(isString("hello"));
 
-    // Daily JS Exercise (Jan. 21 2020)
+    //Conditional Solution:
+    // function isString(input) {
+    //     if (typeof input === "string") {
+    //         alert("Input type is a string");
+    //     } else {
+    //         alert("Input type is not a string");
+    //     }
+    // }
+    //         isString(1234); // Expect: "Not a string"
+    //         isString("HelloWorld"); // Expect: "Is a string"
+    //---------------------------------------------------------------
+    // Daily JS Exercise (Feb. 6 2020)
 
-    function helloName(name) {
-        return "Hello " + name;
-    }
-    console.log(helloName("Anthony"));
-
-    // Daily JS Exercise (Jan. 22 2020)
-
-    function calculateRectangleArea(length, width) {
-        return length * width;
-    }
-    console.log(calculateRectangleArea(2, 2)); /*Expect "4"*/
-    console.log(calculateRectangleArea(4, 5)); /*Expect "20"*/
-
-    // Daily JS Exercise (Jan. 23 2020)
-
-    function arrayLength(array) {
-        return array.length;
-    }
-    console.log(arrayLength(["text", "text", "text", "text"]));
-    /*Numbers in an array do not use quotation marks (""); text DOES*/
-
-    // Daily JS Exercise (Jan. 24 2020)
-
-    function david_seven(x) {
-        return 7;
-    }
-    console.log(david_seven(8)); /*Expect: regardless of input, return will always be number 7*/
-
-    // Daily JS Exercise (Jan. 28 2020)
-
-    //Write a function called firstItem that accepts an array and returns the first item of that array.
-
-    function firstItem(array) {
-        return array[0];
-    }
-    console.log(firstItem(["dog", "cat", "fish", "bird", "fox"]));
-    console.log(firstItem([1, 2, 3, 4]));
-
-    // Daily JS Exercise (Jan. 29 2020)
-
-    // Write a function called determineType that accepts a single input, and returns the type of data that input is
-
-    function determineType(x) {
-        return typeof x;
-    }
-    console.log(determineType(7)) // Expect: returns number
-    console.log(determineType(true)) // Expect: returns boolean
-    console.log(determineType("hello")) // Expect: returns string
-
-    // Daily JS Exercise (Feb. 4 2020)
-
-    // WWrite a function that returns true or false based off whether the number passed, squared, is evenly divisible by 3.
-
-    function squaredDivByThree(num) {
-        return (num * num) % 3 === 0;
-    }
-    console.log(squaredDivByThree(3)) // Expect: returns true
-    console.log(squaredDivByThree(4)) // Expect: returns false
+    // Write a function...
 
 </script>
 </body>
