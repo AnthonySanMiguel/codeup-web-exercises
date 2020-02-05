@@ -44,16 +44,16 @@
 // ----------------------------------------------------------------------------
 // Question 4: Product Offer
 //
-// var premiumMember = confirm("Are you a Premium member?");
-// var numberOfItems = parseInt(prompt("How many items are in your cart?"));
-// var offerValidity = confirm("Is our promotion still available at your local store?");
-// var discountStatus = (premiumMember === true || numberOfItems > 2) && offerValidity === true;
-//
-// var discountNotice = function discountVerificationFormula() {
-//         if (discountStatus === true) {
-//             return ("Your discount has been applied!");
-//     }   else {
-//             return("Sorry, this discount is no longer valid.");
-//     }
-// };
-// alert(discountNotice());
+var premiumMember = confirm("Are you a Premium member?");
+var numberOfItems = parseInt(prompt("How many items are in your cart?"));
+var offerValidity = confirm("Is our promotion still available at your local store?");
+var discountStatus = (premiumMember === true || numberOfItems > 2) && offerValidity === true;
+
+var discountNotice = function discountVerificationFormula() {
+        if (discountStatus === true) {
+            return ("Your discount has been applied!");
+    }   else {
+            return("Sorry, this discount is no longer valid.");
+    }
+};
+alert(discountNotice());
