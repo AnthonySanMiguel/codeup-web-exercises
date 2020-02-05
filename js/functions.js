@@ -93,9 +93,9 @@
      * > calculateTip(0.15, 33.42) // returns 5.013
      */
 
-     // function calculateTip(tipPercentage,billAmount) {
-     //     return tipPercentage * billAmount;
-     // }
+     function calculateTip(tipPercentage,billAmount) {
+         return tipPercentage * billAmount;
+     }
      // calculateTip();
      // console.log(calculateTip(0.20,20));
      // console.log(calculateTip(0.25,25.50));
@@ -107,9 +107,9 @@
      * prompt the user for the bill total and a percentage they would like to tip,
      * then display the dollar amount they should tip*/
 
-    // var billAmount = Number(prompt("What was your bill amount?"));
-    // var tipPercentage = Number(prompt("What percentage would you like to tip?"));
-    // alert("Thank you! Your tip amount should be: $" + calculateTip(billAmount,tipPercentage).toFixed(2));
+    // var billBeforeTip = parseFloat(prompt("What was your bill amount?"));
+    // var tipPerc = parseFloat(prompt("What percentage would you like to tip? (.01 - 1)"));
+    // alert("Thank you! Your tip amount should be: $" + calculateTip(billBeforeTip,tipPerc).toFixed(2));
 
 //------------------------------------------------------------------------------------
     /**
