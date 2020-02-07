@@ -36,27 +36,55 @@
 
 /*Make a function named isThree(input)*/
 
+    // function isThree(input){}
+
 /*Make a function named isMultipleOfThree(input)*/
+
+    // function isMultipleOfThree(input) {}
 
 /*Make a function named isMultipleOfThreeAndFive(input)*/
 
+    // function isMultipleOfThreeAndFive(input) {}
+
 /*Make a function named isMultipleOf(target, n) which checks if target is evenly divisible by n*/
+
+    //    function isMultipleOf(target,n) {
+    //        return target%n === 0;
+    // }
+    // console.log(isMultipleOf(100,20));
+    // console.log(isMultipleOf(100,27));
 
 /*Make a function named isTrue(boolean)*/
 
+    // function isTrue(boolean) {}
+
 /*Make a function named isFalse(boolean)*/
+
+    // function isFalse(boolean) {}
 
 /*Make a function named isTruthy(input), remember that values other than true will behave like true*/
 
+    // function isTruthy(input) {}
+
 /*Make a function named isFalsy(input), remember that values other than false behave like false*/
+
+    // function isFalsy(input) {}
 
 /*Make a function named isVowel(letter)*/
 
+    // function isVowel(letter) {}
+
 /*Make a function named isConsonant(letter)*/
+
+    // function isConsonant(letter) {}
 
 /*Make a function named isCapital(letter)*/
 
+    // function isCapital(letter) {}
+
 /*Make a function named isLowerCase(letter)*/
+
+    // function isLowerCase(letter) {}
 
 /*Make a function named hasLowerCase(string) that returns if a string has any lower cased letter*/
 
@@ -92,7 +120,7 @@
 
 /*Write a function named cubeRoot(n) that returns the cube root of the input*/
 
-/*Write a function named invertSign(number) that returns a negative version of a postive number, a positve version of negative, and false for all else.*/
+/*Write a function named invertSign(number) that returns a negative version of a positive number, a positive version of negative, and false for all else.*/
 
 /*Write a function named degreesToRadians(number)*/
 
