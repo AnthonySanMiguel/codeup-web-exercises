@@ -13,11 +13,11 @@
 
  * Can you refactor your code to use functions?
  */
-
+//
 // var numberQuestion = confirm("Hello! Would you like to enter a number for testing?");
 // var numberInput = Number(prompt("Please enter a number in the space below: "));
-// //
-// // //Is the Number Even or Odd?
+//
+// // Is the Number Even or Odd?
 //
 // var evenOddNumber = function evenOddCalculator(numberInput) {
 //     if (numberInput % 2 === 0) {
@@ -28,14 +28,12 @@
 // };
 // alert(evenOddNumber(numberInput));
 //
-//
 // // What is the Number, plus 100?
 //
 // var numberPlus100 = function add100(numberInput) {
 //     return numberInput + " + 100 = " + (numberInput + 100);
 // };
 // alert(numberPlus100(numberInput));
-//
 //
 // //Is the number negative or positive?
 //
@@ -47,6 +45,86 @@
 //     }
 // };
 // alert(positiveOrNegative(numberInput));
+
+//--------------------INSTRUCTOR SOLUTION (without functions)-----------------------
+
+// var willContinue = confirm("Would you like to enter a number?");
+//
+// if(willContinue) {
+//     //prompt for a number
+//     var userInput = prompt("What number would you like to enter?");
+//
+//     var isNum = !NaN(userInput); // function isNum()
+//
+//     if(isNum) { // isNum is true
+//         //we know that we have a real number
+//         // run all of our calculations in this statement
+//
+//         //even or odd // function even()
+//         if (userInput % 2 === 0) { // if true -> even
+//             alert("Number is even");
+//         } else { // false -> odd
+//             alert("Number is odd");
+//         }
+//
+//         // num + 100 function plus100()
+//         var userNum = parseFloat(userInput);
+//
+//         alert("You number plus 100 = " + (userNum + 100));
+//
+//         // negative or positive // function negative()
+//         if(userInput < 0) { // their number is negative
+//             alert("Your number is negative")
+//         } else if(userInput > 0) {// their number is positive
+//             alert("Your number is positive")
+//         } else { // number is 0
+//             alert("Your number is zero")
+//         }
+//     } else { // isNum if false
+//         alert("That is not a number!")
+//     }
+// }
+//--------------------INSTRUCTOR SOLUTION (with functions)-----------------------
+
+// function isNum(input) { // taking user number input
+//     return !isNaN(input) // true -> number, false -> NaN
+// }
+//
+// function isEven(num) {
+//     return num % 2 === 0; // true -> even, false -> odd
+// }
+//
+// function plus100(num) { // 'num' is uer input
+//     var userNum = parseFloat(userInput);
+//     var returnString = "Your number plus 100 = " + (userNum + 100);
+//     return returnString;
+// }
+//
+// function isNegative(num) {
+//     return num < 0; // true -> number is less than zero (negative)
+//                     // false -> number is > 0 (positive)
+// }
+//
+// function mainFunction() {
+//     // call all functions
+//     if(willContinue) { // user clicked okay
+//         var userInput = prompt("What number would you like to enter?");
+//         if(isNumFunc(userInput)) {
+//             // get number details
+//             var isEvenMessage = (isEven(userInput) ? "Your number is even" : "Your number is odd");
+//             alert(isEvenMessage);
+//             //plus 100
+//             alert(plus100(userInput)); // alert the plus 100 string from above function
+//             // negative or positive
+//             var isNegativeMessage = (isNegative(userInput)) ? "Number is negative" : "Number is positive";
+//             alert(isNegativeMessage);
+//         } else { // user input is NaN
+//             alert("Please enter a number")
+//     } // outside of this statement -> they clicked CANCEL
+// }
+//
+// var willContinueFunc = confirm("Would you like to enter a number");
+// mainFunction(willContinueFunc);
 
 /* ########################################################################## */
 
@@ -93,6 +171,23 @@
 // }
 // analyzeColor(userColorSelection);
 
+//--------------------INSTRUCTOR SOLUTION-----------------------
+
+// function analyzeColor(color) {
+//     var colorMessage = "";
+//     if (color === "blue") {
+//         colorMessage = "blue is the color of the sky";
+//     } else if (color === "red") {
+//         colorMessage = "strawberries are red"
+//     } else if (color === "cyan") {
+//         colorMessage = "I don't know anythinga about cyan";
+//     } else {
+//         colorMessage = "I don't know about that color";
+//     }
+//     return colorMessage;
+// }
+//--------------------------------------------------------------
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -116,9 +211,16 @@
 //         alert("One of the many colors of the rainbow.");
 //     }
 // }
-
+//
 // colorSelector(randomColor);
 
+//--------------------INSTRUCTOR SOLUTION-----------------------
+
+// console.log(analyzeColor("blue"));
+// console.log(analyzeColor("red"));
+// console.log(analyzeColor("randomColor"));
+
+//--------------------------------------------------------------
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement*/
@@ -137,6 +239,11 @@
 //         alert("One of the many colors of the rainbow.");
 //     break;
 // }
+
+//--------------------INSTRUCTOR SOLUTION-----------------------
+
+
+//--------------------------------------------------------------
 
 /**
  * TODO:
@@ -170,6 +277,12 @@
 // }
 // analyzeColor(userColorSelection);
 
+//--------------------INSTRUCTOR SOLUTION-----------------------
+
+// var userColor = prompt("Please enter a color");
+// alert(analyzeColorSwitch(userColor));
+
+//--------------------------------------------------------------
 /* ########################################################################## */
 
 /**
@@ -221,6 +334,35 @@
 // }
 // calculateTotal();
 
+//--------------------INSTRUCTOR SOLUTION-----------------------
+
+// function calculateTotal(luckyNumber, totalAmount) {
+//     var discountRate = 0;
+//     switch(luckyNumber) {
+//         case 0:
+//             discountRate = 0;
+//             break;
+//         case 1:
+//             discountRate = 0.10;
+//             break;
+//         case 2:
+//             discountRate = 0.25;
+//             break;
+//         case 3:
+//             discountRate = 0.35;
+//             break;
+//         case 4:
+//             discountRate = 0.50;
+//             break;
+//         case 5:
+//             discountRate = 1;
+//             break;
+//     }
+//     // total - (discountRate * total)
+//     return totalAmount - (discountRate * totalAmount);
+// }
+
+//--------------------------------------------------------------
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -263,3 +405,11 @@
 //         "Your total today is: $" + billTotal);
 // }
 // calculateTotal();
+
+//--------------------INSTRUCTOR SOLUTION-----------------------
+
+// var totalBill = prompt(("What was your total bill?"));
+// alert("Your lucky number is: " + luckyNumber);
+// alert("Your new total bill is: " + calculateTotal(luckyNumber, totalBill).toFixed(2));
+
+//--------------------------------------------------------------
