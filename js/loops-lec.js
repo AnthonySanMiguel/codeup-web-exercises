@@ -240,7 +240,7 @@
 // 	if (i % 2 !== 0) {
 // 		// skipping all Odd numbers;
 // 		continue;
-}
+// }
 //
 // 	console.log('Here is a lovely even number: ' + i); // Will only display Even numbers, since Odds are skipped (e.g. if Odd, "continue" to log Even with message)
 // }

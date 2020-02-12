@@ -19,12 +19,12 @@
 // 32768
 // 65536
 
-var i = 2;
-
-while (i <= 65536) {
- console.log(i);
- i = i++ * 2
-}
+// var i = 2;
+//
+// while (i <= 65536) {
+//  console.log(i);
+//  i = i++ * 2
+// }
 //------------------------------------------------------
 // An ice cream seller can't go home until she sells all of her cones.
 // Write a JS program that generates a random number between 50 and 100 representing the amount of cones to sell.
@@ -44,20 +44,49 @@ while (i <= 65536) {
 // Cannot sell you 6 cones I only have 3...  // If there are not enough cones
 // Yay! I sold them all! // If there are no more cones
 
-var allCones = Math.floor(Math.random() * 50) + 50; //Generates # of cones to sell for the day (between 50 - 100).
+//PSEUDO CODE:
+    // 1. Generate a total amount of cones to sell for the day (e.g. allCones)
+    // 2. Now we are in the loop - we need to generate / check how many cones the customer wants to buy (e.g. customerOrder).
+    // 3. If "customerOrder" > "allCones" = I don't have enough cones to sell (e.g. "the negative" or "the 'sad path'").
+    // 4. If "customerOrder" < "allCones" = I have enough cones to sell, thus "allCones = allCones - customerOrder".
+    // 5. Repeat this process while "allCones" > 0.
+    // 6. Reaching "0" completes the loop, thus after the loop, console.log "Yay, I sold all my cones!"
 
-console.log("Today's goal is: " + allCones + " cones.");
+// INSTRUCTOR SOLUTION:
+// var allCones = Math.floor(Math.random() * 50) + 50; //Generates # of cones to sell for the day (between 50 - 100).
+//
+// do{
+//     var customerOrder = Math.floor(Math.random() * 5) + 1; //Generates random customer order, 1-5 cones.
+//
+//     if(customerOrder > allCones){
+//         var sadMessage = "Cannot sell you " + customerOrder + " I only have " + allCones + " left.";
+//         console.log(sadMessage);
+//     } else {
+//         allCones = allCones - customerOrder;
+//         var happyMessage = customerOrder + " cones sold..." + allCones + " cones to go!";
+//         console.log(happyMessage);
+//     }
+// }while(allCones > 0);
+//
+// console.log("Yay, I sold all my cones!");
 
-do {
-    var customerOrder = Math.floor(Math.random() * 5) + 1; //Generates random customer order, 1-5 cones.
+//------------------------------------------------------
 
-    if (customerOrder > allCones) {
-        console.log("A customer wants to purchase: " + customerOrder);
-        console.log("Sorry! We only have " + allCones + " left. Do you want to revise your order?")
-    } else {
-        console.log("A customer wants to purchase " + customerOrder);
-        allCones = allCones - customerOrder;
-        console.log("- " + allCones + " left to sell. -")
-    }
-} while (allCones > 0);
-  console.log("Congratulations! We met our daily goal!");
+// MY SOLUTION:
+// var allCones = Math.floor(Math.random() * 50) + 50; //Generates # of cones to sell for the day (between 50 - 100).
+//
+// console.log("Today's goal is: " + allCones + " cones.");
+//
+// do {
+//     var customerOrder = Math.floor(Math.random() * 5) + 1; //Generates random customer order, 1-5 cones.
+//
+//     if (customerOrder > allCones) {
+//         console.log("A customer wants to purchase: " + customerOrder);
+//         console.log("Sorry! We only have " + allCones + " left. Do you want to revise your order?")
+//     } else {
+//         console.log("A customer wants to purchase " + customerOrder);
+//         allCones = allCones - customerOrder;
+//         console.log("- " + allCones + " left to sell. -")
+//     }
+// } while (allCones > 0);
+//   console.log("Congratulations! We met our daily goal!");
