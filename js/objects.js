@@ -50,23 +50,23 @@
      * and console.log the relevant messages for each person
      */
 
-    var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
-    ];
-
-    // shoppers.forEach(function(shopper) {
-    //     console.log(shoppers[0].name + " bought $" + shoppers[0].amount + " of groceries and received a 12% discount! His initial bill of $" + shoppers[0].amount + " has been reduced to $" + (shoppers[0].amount - (shoppers[0].amount * .12).toFixed(2)));
-    // });
-
-    shoppers.forEach(function(x){
-        if(x.amount > 200){
-            console.log("Congratulations! " + x.name + "'s initial bill of $" + x.amount + " has been reduced by 12%! His new total is " + (x.amount - (x.amount * .12)).toFixed(2));
-        } else{
-            console.log("Sorry! " + x.name + " is not eligible for a discount with a total of $" + x.amount);
-        }
-});
+//     var shoppers = [
+//         {name: 'Cameron', amount: 180},
+//         {name: 'Ryan', amount: 250},
+//         {name: 'George', amount: 320}
+//     ];
+//
+//     // shoppers.forEach(function(shopper) {
+//     //     console.log(shoppers[0].name + " bought $" + shoppers[0].amount + " of groceries and received a 12% discount! His initial bill of $" + shoppers[0].amount + " has been reduced to $" + (shoppers[0].amount - (shoppers[0].amount * .12).toFixed(2)));
+//     // });
+//
+//     shoppers.forEach(function(x){
+//         if(x.amount > 200){
+//             console.log("Congratulations! " + x.name + "'s initial bill of $" + x.amount + " has been reduced by 12%! His new total is " + (x.amount - (x.amount * .12)).toFixed(2));
+//         } else{
+//             console.log("Sorry! " + x.name + " is not eligible for a discount with a total of $" + x.amount);
+//         }
+// });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
