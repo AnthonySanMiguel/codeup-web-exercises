@@ -1,6 +1,6 @@
 "use strict";
 
-// Write a function that uses a loop to console.log "99 bottles of beer on the wall" until the passed argument number.
+// Write a function that uses a loop to console.log "99 bottles of beer on the wall" until passed the argument number.
 // Use a break to exit the loop, and console.log the message "Aw no, we're not doing that song again," in the event the argument is a number greater than or equal to 99, less than 0, or is not a number.
 
 // Write a loop that will console.log hexadecimal numbers until it reaches '100' (uninclusive).

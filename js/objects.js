@@ -36,6 +36,12 @@
     // };
     // console.log(person.sayHello());
 
+    // INSTRUCTOR SOLUTION:
+    // person.sayHello = function(){
+    //     return "Hello " + this.firstName + " " + this.lastName + "!"; // Use "this" instead of object name (e.g. "person")
+    // };
+    // console.log(person.sayHello());
+
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -50,11 +56,11 @@
      * and console.log the relevant messages for each person
      */
 
-//     var shoppers = [
-//         {name: 'Cameron', amount: 180},
-//         {name: 'Ryan', amount: 250},
-//         {name: 'George', amount: 320}
-//     ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
 //
 //     // shoppers.forEach(function(shopper) {
 //     //     console.log(shoppers[0].name + " bought $" + shoppers[0].amount + " of groceries and received a 12% discount! His initial bill of $" + shoppers[0].amount + " has been reduced to $" + (shoppers[0].amount - (shoppers[0].amount * .12).toFixed(2)));
@@ -67,6 +73,19 @@
 //             console.log("Sorry! " + x.name + " is not eligible for a discount with a total of $" + x.amount);
 //         }
 // });
+
+// INSTRUCTOR SOLUTION:
+// function discountChecker(shoppers){
+//     shoppers.forEach(function(shopper){
+//        if(shopper.amount > 200){
+//            console.log("Shopper " + shopper.name + " has earned a 12% discount by having a cart totalling $" + shopper.amount.toFixed(2) + ". After the discount of " + (shopper.amount * .12).toFixed(2) + " was applied, " + shopper.name + " owes $" + (shopper.amount - (shopper.amount * .12)).toFixed(2) + ".")
+//        } else {
+//            console.log("Shopper " + shopper.name + " did not spend more than $200.00. They did not earn a discount. They owe $" + shopper.amount.toFixed(2));
+//        }
+//     });
+// }
+//
+// discountChecker(shoppers);
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -118,6 +137,10 @@
 //             }
 //         }
 // ];
+//
+//     // INSTRUCTOR SOLUTION:
+//     books.forEach(function(book, index){
+//         console.log("Book #" + (index + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstname + " " + book.author.lastName)});
 
 // console.log(books[0].title);
 // console.log(books[0].author.firstName);
@@ -138,6 +161,8 @@
 // console.log(books[4].title);
 // console.log(books[4].author.firstName);
 // console.log(books[4].author.lastName);
+
+// INSTRUCTOR SOLUTION:
 
     /**
      * TODO:
