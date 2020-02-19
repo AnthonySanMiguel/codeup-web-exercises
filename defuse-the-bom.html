@@ -24,7 +24,7 @@
         } else if (detonationTimer > 0) {
             document.getElementById('timer').innerHTML = detonationTimer;
         }
-        detonationTimer--;
+        detonationTimer--; // THIS IS DECREMENTING THE TIMER!!! ("--" rather than "++")
     }, 1000);
 
 
