@@ -19,7 +19,6 @@ var restaurants = [
         address: "1205 N Loop 1604 W #230, San Antonio, TX 78258",
         location: [-98.508956, 29.609094],
         description: "Signature sushi rolls, bento boxes & more, plus a full bar, in modern quarters."
-        image: 'sushi.png'
     },
     {
         name: "Saltgrass Steak House",
