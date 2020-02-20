@@ -25,15 +25,15 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<button id ="btn1">Hello World...goodbye!</button>
+<button id = "btn1">Hello World...goodbye!</button>
 <br>
-<button id ="btn2">I'm blue...again :-(</button>
+<button id = "btn2">I'm blue...again :-(</button>
 <br>
-<button id ="btn3">To do...tomorrow</button>
+<button id = "btn3">To do...tomorrow</button>
 <br>
-<button id ="btn4">To do...RIGHT NOW!</button>
+<button id = "btn4">To do...RIGHT NOW!</button>
 <br>
-<button id ="btn5">Lorem Ipsum -> English</button>
+<button id = "btn5">Lorem Ipsum -> English</button>
 
 <script>
     (function() {
@@ -49,6 +49,13 @@
             mainHeader.innerText = "JavaScript is Cool";
         };
         document.getElementById('btn1').addEventListener('click', goodbyeWorld);
+
+        var btn1 = document.getElementById('btn1');
+            btn1.addEventListener('click', goodbyeWorld);
+
+        var remover = function(event) {
+            btn1.removeEventListener('click', remover);
+        };
 
         // TODO: Uncomment the next line and get the sub header element by id
         // var subHeader = document.getElementById("sub-header");
