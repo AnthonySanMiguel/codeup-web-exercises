@@ -45,11 +45,18 @@ restaurants.forEach(function(restaurant){ // Create a "For Each" loop that itera
     geocode(restaurant.address, mapboxToken).then(function(result){ // Use the geocode function to search by string text, BUT DOES NOT NEED TO REFERENCE OBJECT ARRAY NAME (e.g. SINGULAR, or NAMED ANYTHING ELSE ... "x.address")
 
         var popup = new mapboxgl.Popup()// Create a new popup window for each address iterated through, using the object's description (e.g. "x.description")
-            .setHTML(restaurant.description);
+            .setHTML(restaurant.name);
 
         var marker = new mapboxgl.Marker(markerOptions)// Create a market, with custom options (e.g. markerOptions), that appears for each address iterated through
             .setLngLat(result)
             .setPopup(popup)
             .addTo(map);
+
+        map.flyTo({
+            center: [-98.508956, 29.609094],
+            zoom: 10.2,
+            speed: 0.2,
+            curve: 1
+        })
     });
 });
