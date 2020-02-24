@@ -329,6 +329,20 @@
 //     return bucket;
 // }
 //
+
+// OR
+
+// function makeSandwichObjects(breads, fillings) {
+//     var sandwiches = [];
+//     breads.forEach(function(bread, i) {
+//         sandwiches.push({
+//             bread: bread,
+//             filling: fillings[i]
+//         });
+//     });
+//     return sandwiches;
+// }
+
 // console.log(makeSandwichObjects(breadList,fillingList));
 
 //          makeSandwichObjects(breads, fillings) // example call to the function
