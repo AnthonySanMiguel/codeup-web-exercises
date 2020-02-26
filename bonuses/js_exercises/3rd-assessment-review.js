@@ -55,20 +55,20 @@
 // 7. Return numbers in ascending order, thus, ".sort() method on bucket array"
 // 8. Return the filled bucket variable with the filtered out numbers
 
-// function filterNumbers(inputArray) {
-//     var bucket = [];
-//
-//     inputArray.forEach(function (x) {
-//         if (typeof x === "number") {
-//             bucket.push(x);
-//         }
-//     });
-//         return bucket.sort(function (a, b) {
-//         return a - b;
-//     });
-// }
-//
-// console.log(filterNumbers(["fred", true, 5, 3]));
+function filterNumbers(inputArray) {
+    var bucket = [];
+
+    inputArray.forEach(function (x) {
+        if (typeof x === "number") {
+            bucket.push(x);
+        }
+    });
+        return bucket.sort(function (a, b) {
+        return a - b;
+    });
+}
+
+console.log(filterNumbers(["fred", true, 5, 3]));
 
 // 2. Write a function, `getOlder()` that takes in array of dog objects and increases the value of the age properties by 1.
 
@@ -79,32 +79,32 @@
 
 //     //Example input:
 //
-//        var dogList = [
-//         {
-//              name: "Chompers",
-//              breed: "Pug",
-//              age: 7
-//          },
-//          {
-//              name: "Freddy",
-//              breed: "Lab",
-//              age: 4
-//          },
-//          {
-//              name: "Mr. Pig",
-//              breed: "Mastif",
-//              age: 10
-//          }
-//      ];
-//
-// function getOlder(dogs){
-//     dogs.forEach(function(dog){
-//         dog.age = dog.age + 1;
-//     });
-//     return dogs;
-// }
-//
-// console.log(getOlder(dogList));
+       var dogList = [
+        {
+             name: "Chompers",
+             breed: "Pug",
+             age: 7
+         },
+         {
+             name: "Freddy",
+             breed: "Lab",
+             age: 4
+         },
+         {
+             name: "Mr. Pig",
+             breed: "Mastif",
+             age: 10
+         }
+     ];
+
+function getOlder(dogs){
+    dogs.forEach(function(dog){
+        dog.age = dog.age + 1;
+    });
+    return dogs;
+}
+
+console.log(getOlder(dogList));
 
 // //Expected output:
 //      [
@@ -133,35 +133,35 @@
 // 3. Return cars
 
 //             // Example input
-//             var carList = [
-//                  {
-//                      make: 'Volvo',
-//                      color: 'red',
-//                      year: 1996,
-//                      isDirty: true
-//                  },
-//                  {
-//                      make: 'Toyota',
-//                      color: 'black',
-//                      year: 2004,
-//                      isDirty: false
-//                  },
-//                  {
-//                      make: 'Ford',
-//                      color: 'white',
-//                      year: 2007,
-//                      isDirty: true
-//                  }
-//             ];
-//
-// function wasCars(cars){
-//     cars.forEach(function (car){
-//         car.isDirty = false;
-//     });
-//     return cars;
-// }
-//
-// console.log(wasCars(carList));
+            var carList = [
+                 {
+                     make: 'Volvo',
+                     color: 'red',
+                     year: 1996,
+                     isDirty: true
+                 },
+                 {
+                     make: 'Toyota',
+                     color: 'black',
+                     year: 2004,
+                     isDirty: false
+                 },
+                 {
+                     make: 'Ford',
+                     color: 'white',
+                     year: 2007,
+                     isDirty: true
+                 }
+            ];
+
+function wasCars(cars){
+    cars.forEach(function (car){
+        car.isDirty = false;
+    });
+    return cars;
+}
+
+console.log(wasCars(carList));
 
 //             // Expected output:
 //              [
@@ -190,20 +190,20 @@
 //    Refactor again to return an array of user objects that are admins.
 
 //          //Example Input:
-//           var userList = [
-//              {
-//                  isAdmin: true,
-//                  email: 'user1@email.com'
-//              },
-//              {
-//                  isAdmin: true,
-//                  email: 'user2@email.com'
-//              },
-//              {
-//                  isAdmin: false,
-//                  email: 'user3@email.com'
-//              }
-//          ];
+          var userList = [
+             {
+                 isAdmin: true,
+                 email: 'user1@email.com'
+             },
+             {
+                 isAdmin: true,
+                 email: 'user2@email.com'
+             },
+             {
+                 isAdmin: false,
+                 email: 'user3@email.com'
+             }
+         ];
 
 // PSEUDO CODE:
 // PART 1 - COUNT (Note: if needing to keep track of a count, need to establish a variable that will act as the "counting bucket")
@@ -213,17 +213,17 @@
 // 3. forEach user (for each User) --> user.isAdmin (if they are an admin, thus isAdmin is true) --> adminCount = adminCount + 1; (add 1 to counter)
 // 4. Return adminCount
 
-// function adminList(users){
-//     var adminCount = 0;
-//     users.forEach(function(user){
-//         if(user.isAdmin){
-//             adminCount = adminCount + 1;
-//         }
-//     });
-//     return adminCount;
-// }
-//
-// console.log(adminList(userList));
+function adminList(users){
+    var adminCount = 0;
+    users.forEach(function(user){
+        if(user.isAdmin){
+            adminCount = adminCount + 1;
+        }
+    });
+    return adminCount;
+}
+
+console.log(adminList(userList));
 //----------------------------------------------------
 // PSEUDO CODE:
 // PART 2 - USER EMAILS
@@ -234,17 +234,17 @@
 // 3. forEach user (for each user) --> if user.isAdmin (if they are an admin) --> bucket.push(user.email) [push their email to the bucket]
 // 4. return bucket
 
-// function adminList(users){
-//     var bucket = [];
-//     users.forEach(function(user){
-//         if(user.isAdmin){
-//             bucket.push(user.email);
-//         }
-//     });
-//     return bucket;
-// }
-//
-// console.log(adminList(userList));
+function adminList(users){
+    var bucket = [];
+    users.forEach(function(user){
+        if(user.isAdmin){
+            bucket.push(user.email);
+        }
+    });
+    return bucket;
+}
+
+console.log(adminList(userList));
 //----------------------------------------------------
 // PSEUDO CODE:
 // PART 3 - USER EMAILS
@@ -255,17 +255,17 @@
 // 3. forEach user (for each user) --> if user.isAdmin (if they are an admin) --> bucket.push(user) [add all their information to the bucket, not just email]
 // 4. return bucket
 
-// function adminList(users){
-//     var bucket = [];
-//     users.forEach(function(user){
-//         if(user.isAdmin){
-//             bucket.push(user);
-//         }
-//     });
-//     return bucket;
-// }
-//
-// console.log(adminList(userList));
+function adminList(users){
+    var bucket = [];
+    users.forEach(function(user){
+        if(user.isAdmin){
+            bucket.push(user);
+        }
+    });
+    return bucket;
+}
+
+console.log(adminList(userList));
 
 //  // Example Output (before refactor): 2
 //
@@ -293,19 +293,19 @@
 
 //         //     Example Input:
 
-         // var breadList  = [
-         //     "white",
-         //     "wheat",
-         //     "rhy",
-         //     "white"
-         // ];
-         //
-         // var fillingList = [
-         //     "pb&j",
-         //     "ham",
-         //     "cheese steak",
-         //     "tuna"
-         // ];
+         var breadList  = [
+             "white",
+             "wheat",
+             "rhy",
+             "white"
+         ];
+
+         var fillingList = [
+             "pb&j",
+             "ham",
+             "cheese steak",
+             "tuna"
+         ];
 
 // PSEUDO CODE:
 // 1. Write a function named makeSandwichObjects(breads, fillings)
@@ -315,19 +315,19 @@
 // 5. bucket.push(sandwichObject)
 // 6. return bucket
 
-// function makeSandwichObjects(breads, fillings){
-//     var bucket = [];
-//     for(var i = 0; i < breads.length; i++){
-//
-//         var sandwichObject = {
-//             bread: breads[i],
-//             filling: fillings[i]
-//         };
-//
-//         bucket.push(sandwichObject);
-//     }
-//     return bucket;
-// }
+function makeSandwichObjects(breads, fillings){
+    var bucket = [];
+    for(var i = 0; i < breads.length; i++){
+
+        var sandwichObject = {
+            bread: breads[i],
+            filling: fillings[i]
+        };
+
+        bucket.push(sandwichObject);
+    }
+    return bucket;
+}
 //
 
 // OR
@@ -370,7 +370,7 @@
 // 6. Write a function named keepYellow that accepts an array of strings and returns an array with all the strings that are equal to "yellow"
 //    console.log(keepYellow(["yellow", "red", "blue", "yellow", "black", "brown", "yellow"]));
 
-// var test = ["yellow", "red", "blue", "yellow", "black", "brown", "yellow"];
+var test = ["yellow", "red", "blue", "yellow", "black", "brown", "yellow"];
 
 // PSEUDO CODE:
 // 1. Create a defined function
@@ -378,17 +378,17 @@
 // 3. Place yellow strings in var bucket = [];
 // 4. Return bucket
 
-// function keepYellow(stringArray){
-//     var bucket = [];
-//     stringArray.forEach(function(color){
-//         if(color === "yellow"){
-//             bucket.push(color);
-//         }
-//     });
-//     return bucket;
-// }
-//
-// console.log(keepYellow(test));
+function keepYellow(stringArray){
+    var bucket = [];
+    stringArray.forEach(function(color){
+        if(color === "yellow"){
+            bucket.push(color);
+        }
+    });
+    return bucket;
+}
+
+console.log(keepYellow(test));
 
 // OR
 
