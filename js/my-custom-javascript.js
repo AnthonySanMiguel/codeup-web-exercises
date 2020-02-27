@@ -20,21 +20,21 @@ $(document).ready(function() {
 
     // $('li').css('font-size', '20px').css('border', '1px solid red'); // Targets list item "li" elements and changes the font sizes for all AND adds red border
 
-    // $('h1').dblclick(function(e) { // Will change the background color of all h1 elements when double-clicked
-    //     $(this).css('background-color', 'red');
-    // });
+    $('h1').click(function() { // Will change the background color of all h1 elements when single-clicked
+        $(this).css('background-color', 'red');
+    });
 
-    // $('p').dblclick(function(e) { // Will change the font size of all p elements when double-clicked
-    //     $(this).css('font-size', '18px');
-    // });
+    $('p').dblclick(function() { // Will change the font size of all p elements when double-clicked
+        $('p').css('font-size', '18px');
+    });
 
-    // $('li').hover( // Will change effect of li items to red when hovered over and black when not hovered over
-    //     function() {
-    //         $(this).css('color', 'red');
-    //     },
-    //     function() {
-    //         $(this).css('color', 'black');
-    //     }
-    // );
+    $('li').hover( // Will change effect of li items to red when hovered over and black when not hovered over
+        function() {
+            $('li').css('color', 'red'); // <---- If 'li' target is set to 'this", it will target each specific element (e.g. THE ONE THAT IS CURRENTLY BEING INTERACTED WITH, OR 'HOVERED' OVER) rather than the entire block together as one interactive object.
+        },
+        function() {
+            $('li').css('color', 'black');
+        }
+    );
 
 });
