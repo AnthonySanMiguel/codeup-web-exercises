@@ -1,0 +1,29 @@
+#konami_header {
+    text-align: center;
+}
+
+#search_bar{
+    width: 20em;
+}
+
+#random_button{
+    width: 6em;
+    height: 3em;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: .8em;
+    background-color: lightblue;
+}
+
+#random_button:hover{
+    width: 6em;
+    height: 3em;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: .8em;
+    background-color: indianred;
+}
+
+p {
+    text-align: center;
+}
