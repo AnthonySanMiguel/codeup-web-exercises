@@ -9,7 +9,7 @@
 
 <h1>National Park Facts</h1>
 <br>
-<a id="button" href="#">Toggle Facts</a>
+<button id="button">Show/Hide the Facts!</button>
 <dl>
     <dt>1. President's Park, Washington DC</dt>
     <dd class="invisible">As the White House is located on this property, this park consistently houses a U.S. president.</dd>
@@ -30,7 +30,7 @@
     <dd class="invisible">Known for having some of the darkest skies in the continental U.S.</dd>
     <br>
     <dt>7. Yosemite National Park, California</dt>
-    <dd class="invisible">Contains Giant Sequoias, which are the largest living things on the planet.</dd>
+    <dd class="invisible">Contains Giant Sequoias, which are one of the largest living things on the planet.</dd>
     <br>
     <dt>8. Yosemite National Park, California.</dt>
     <dd class="invisible">Nearly 1,200 sq. mi., a majority of the park is largely untouched and uninhabited by humans.</dd>
@@ -39,7 +39,7 @@
     <dd class="invisible">Location for filming "127 Hours", starring James Franco.</dd>
     <br>
     <dt>10. Kenai Fjords National Park, Alaska.</dt>
-    <dd class="invisible">Where three-centimeter-long ice worms live inside glaciers, moving through ice using small bristles on their bodies..</dd>
+    <dd class="invisible">Where three-centimeter-long ice worms live inside glaciers, moving through ice using small bristles on their bodies.</dd>
     <br>
 </dl>
 
@@ -47,10 +47,11 @@
 
 <script>
     $(function() {
-        $("#button").click(function () {
+        $("#button").click(function (e) {
+            e.preventDefault(); // Need to add prevent default if using a button for click event (so no form info is submitted)
             $("dd").toggle();
-            $("dt").click(function () {
-                $(this).css('background-color', 'yellow');
+        $("dt").click(function () {
+            $(this).css('background-color', 'yellow');
             });
         });
     });
