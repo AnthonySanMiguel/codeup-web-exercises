@@ -83,21 +83,47 @@ function rainbowLogo(){
         counter++; i++;
     });
     text = colorfulText.join(' ');
-    console.log(text);
+    // console.log(text);
 
     return $('#colorText').removeClass(getColorText()).html(text);
 
 }
 
-console.log(rainbowLogo());
+// console.log(rainbowLogo());
 
 // Set a variable called circleClickCount, to keep track of how many times an individual circle has been clicked
-
+var circleClickCount = 0;
 
 // Add a click listener to each of the 'circle' elements at the bottom of the page, and make each color circle
+$('.circle').click(function(){
 // change the logo to the clicked color, or rainbow, if rainbow was clicked
-// If the same color is clicked twice, toggle the 'caps' class to UPPERCASE and lowercase the color name
+    // if 'red' is clicked --> change the logo color (all paths) to red AND change the header text to say 'red' with a red font color
+    var clickedColor = $(this).attr('id'); // whichever circle is clicked, return the id of the element (e.g. 'red', 'orange', etc.)
+    circleClickCount++;
+    // user either clicks 1. a single color circle, or 2. the 'rainbow' circle
+    if(clickedColor === 'rainbow'){
+        console.log('rainbow was clicked'); // shows rainbow button was clicked in log
+        resetColor(); // removes all current classes from the logo path elements after the rainbow button is clicked
+        rainbowLogo(); // will run the rainbow function and change all path elements to rainbow colors
+    } else { // if user does NOT click on the rainbow circle and selects on the of the single color buttons
+        console.log(clickedColor + " was clicked"); // shows which color button was clicked in log
+        setColorText(clickedColor); // will run setColorText function for the user selected color (e.g. clickedColor input) and change the text appropriately
+        setSectionColor(clickedColor, 'all'); // will run the setSectionColor function, inputting the user clickedColor, and selecting 'all' logo paths/parts
+    }
+    // If the same color is clicked twice, toggle the 'caps' class to UPPERCASE and lowercase the color name
+    if($('.codeup-logo').attr('id') === clickedColor){ // if the header text matches the color of the button clicked...
+        $('#colorText').toggleClass('caps'); // ... toggle the font to upperCase
+        console.log("clicked the same color")
+    } else { // Once user clicks a different color circle, remove the upperCase class and reset the click counter
+        $('#colorText').removeClass('caps');
+        circleClickCount = 0;
+    }
+    console.log(circleClickCount);// See how many times user clicked
+    // After we've checked for multiple clicks, set .codeup-log element id, to 'clickedColor'
+    $('.codeup-logo').attr('id', clickedColor);
+});
 
+// CHECK CONSOLE LOG FOR CLICKS AND TO CHECK COUNTER...IF SAME COLOR IS CLICKED = COUNTER INCREASES...IF A DIFFERENT COLOR IS CLICKED = COUNTER RESETS BACK TO 0
 
 // *********************** Traversing Methods ********************************* //
 
