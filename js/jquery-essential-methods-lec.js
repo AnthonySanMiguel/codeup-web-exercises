@@ -112,7 +112,7 @@ $('.circle').click(function(){
     }
     // If the same color is clicked twice, toggle the 'caps' class to UPPERCASE and lowercase the color name
     if($('.codeup-logo').attr('id') === clickedColor){ // if the header text matches the color of the button clicked...
-        $('#colorText').toggleClass('caps'); // ... toggle the font to upperCase
+        $('#colorText').toggleClass('caps'); // ... toggle the font to upperCase ; NOTE: 'caps' has been previously defined in the style sheet (e.g. see HTML style definitions) --> ".caps{text-transform: uppercase;}"
         console.log("clicked the same color")
     } else { // Once user clicks a different color circle, remove the upperCase class and reset the click counter
         $('#colorText').removeClass('caps');
