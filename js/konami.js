@@ -4,6 +4,12 @@
 
 $(document).ready(function() {
 
+//-----------Allows Creation of New Code (for copying into new variable array) by Displaying Key Codes-------------
+
+    // $('#search_bar').keydown(function () {
+    //     $('#content').append(event.key + " ")
+    // });
+
 //-----------Correlates Key Codes with Event Codes-------------
 
     // Konami Code (Invincibility)
@@ -146,6 +152,7 @@ $(document).ready(function() {
 //-----------Final Function that "Activates" Once Correct Code is Entered-------------
 
         // Konami Code (Invincibility)
+
         function activateCheats() {
             $('h1').html("<p>Invincibility Activated!</p>" + "<p>You are unstoppable!</p>");
             $('h1').css('color', 'white');
@@ -165,6 +172,7 @@ $(document).ready(function() {
     }
 
         // Unlimited Ammo
+
         function activateCheats2() {
             $('h1').html("<p>Unlimited Ammo!</p>" + "<p>Lock n' Load!</p>");
             $('h1').css('color', 'white');
@@ -200,6 +208,7 @@ $(document).ready(function() {
         }
 
         // All Weapons
+
         function activateCheats3() {
             $('h1').html("<p>All Weapons Unlocked!</p>" + "<p>Rack & Attack!</p>");
             $('h1').css('color', 'white');
@@ -219,6 +228,7 @@ $(document).ready(function() {
 
 
         // Unlimited Lives
+
         function activateCheats4() {
             $('h1').html("<p>Unlimited Lives Unlocked!</p>" + "<p>Death Eludes You!</p>");
             $('h1').css('color', 'white');
@@ -257,10 +267,5 @@ $(document).ready(function() {
                 break;
         }
 
-//-----------Allows Creation of New Code (for copying into new variable array) by Displaying Key Codes-------------
-
-        // $('#search_bar').keydown(function () {
-        //     $('#content').append(event.key + " ")
-        // });
     })
 });
