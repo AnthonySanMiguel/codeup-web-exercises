@@ -146,23 +146,22 @@ $(document).ready(function() {
 //-----------Final Function that "Activates" Once Correct Code is Entered-------------
 
         // Konami Code (Invincibility)
-    function activateCheats() {
-        $('h1').html("<p>Invincibility Activated!</p>" + "<p>You are unstoppable!</p>");
-        $('h1').css('color', 'white');
-        $('h1').css('margin-top', '4%');
+        function activateCheats() {
+            $('h1').html("<p>Invincibility Activated!</p>" + "<p>You are unstoppable!</p>");
+            $('h1').css('color', 'white');
+            $('h1').css('margin-top', '4%');
 
-        $('button').css('display', 'none');
-        $('ul').css('display', 'none');
+            $('button').css('display', 'none');
+            $('ul').css('display', 'none');
 
-        $('body').css('background-color', 'black');
+            $('body').css('background-color', 'black');
 
-        $('.main_gif').prepend($('<img>',{src:'img/terminator_walk.gif'}));
-        $('img').css('margin-left', '35%');
-        $('img').css('height', 'auto');
-        $('img').css('width', 'auto');
+            $('.main_gif').prepend($('<img>',{src:'img/terminator_walk.gif'}));
+            $('img').css('display', 'block');
+            $('img').css('margin', '0 auto');
 
-        var audio = new Audio('audio/well_done.mp3');
-        audio.play();
+            var audio = new Audio('audio/well_done.mp3');
+            audio.play();
     }
 
         // Unlimited Ammo
@@ -176,9 +175,8 @@ $(document).ready(function() {
             $('body').css('background-color', 'black');
 
             $('.main_gif').prepend($('<img>',{src:'img/predator_jungle.gif'}));
-            $('img').css('margin-left', '23%');
-            $('img').css('height', 'auto');
-            $('img').css('width', 'auto');
+            $('img').css('display', 'block');
+            $('img').css('margin', '0 auto');
 
             var snd1  = new Audio();
             var src1  = document.createElement("source");
@@ -212,9 +210,8 @@ $(document).ready(function() {
             $('body').css('background-color', 'black');
 
             $('.main_gif').prepend($('<img>',{src:'img/matrix.gif'}));
-            $('img').css('margin-left', '33.8%');
-            $('img').css('height', 'auto');
-            $('img').css('width', 'auto');
+            $('img').css('display', 'block');
+            $('img').css('margin', '0 auto');
 
             var audio = new Audio('audio/reload.mp3');
             audio.play();
@@ -232,9 +229,8 @@ $(document).ready(function() {
             $('body').css('background-color', 'black');
 
             $('.main_gif').prepend($('<img>',{src:'img/second_chance.gif'}));
-            $('img').css('margin-left', '33.5%');
-            $('img').css('height', 'auto');
-            $('img').css('width', 'auto');
+            $('img').css('display', 'block');
+            $('img').css('margin', '0 auto');
 
             var audio = new Audio('audio/undying.mp3');
             audio.play();
