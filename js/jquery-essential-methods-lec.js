@@ -132,21 +132,29 @@ $('.circle').click(function(){
 // .each()   .first()    .last()    .children()    .parent()    .next()
 
 // TODO: Let's give each of the selection circles a 1px black border
+$('.circle').each(function(index){
+    console.log(("added border to circle" + index));
+    return $(this).css('border', '1px solid black');
 
+});
 
 // TODO: Let's take the border away from the first circle
-
+$('.circle').first().css('border', 'none');
 
 // TODO: Let's make the last circle disappear
-
+$('.circle').last().css('display', 'none'); // NOTE: DISPLAY FLEX STILL KEEPS CIRCLES ALIGNED, EVEN AFTER REMOVING LAST ONE (e.g. rainbow one) SEE CSS DISPLAY BELOW
 
 // TODO: Find the children of the circle row, and remove borders from all of them, then unhide the last circle
-
+$('.circles').children().css('border', 'none').last().css('display', 'inline-flex');
 
 // TODO: while changing the fist path element to have a black fill, give its grandparent a light gray background and 10px padding
-
+$('#path1').removeClass().addClass('black').parent().parent().css({ // TO GET "GRANDPARENT", TARGET "PARENT" TWICE (e.g. "PARENT" --> THEN "GRANDPARENT")
+    'background': 'lightgray', // NOTE: EXAMPLE OF ADDING STYLE 'OBJECT' TO .CSS
+    'margin': '20px'
+});
 
 // TODO: change the second path element to blue, then change the 'next' element to yellow
-
+$('#path2').removeClass().addClass('blue').next().removeClass().addClass('yellow'); // Before adding the class name, make sure to .removeClass() to erase any existing classes and avoid conflict/multiple class names.
 
 // TODO: What's the difference between changing the class to change the color, and simply changing the color directly?
+// By calling a specific class, you can use custom css colors rather than the default hex or color options...also, if making a manual css change, there is no quick way to unset that color...but you can toggle a class for efficiency.
