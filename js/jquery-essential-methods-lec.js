@@ -17,15 +17,15 @@ function getColorText(){ // Will return a string inside the #colorText span
 
 // Setter for text of logo color
 function setColorText(color){ // Will set the text to the passed in color, and also change its CSS color
-    return $('#colorText').removeClass(getColorText()).html(color).addClass(color);
+    return $('#colorText').removeClass(getColorText()).html(color).addClass(color); // Will change #colorText, remove its current class, change the color to color input, and change CLASS to the color input (e.g. class='purple'); WE ONLY WANT ONE CLASS AT A TIME
 }
 // console.log(setColorText('purple'));
 
 // Getter for section color
-function getSectionColor(section){
+function getSectionColor(section){ // <-- NOTE: "section" input is targeting the 'path#' IDs as a variable, rather than specifying each (e.g. '#path1')
     return $(section).attr('class');
 }
-// console.log(getSectionColor('#path1'));
+// console.log(getSectionColor('#path1')); // Call function and specify the path/section to see current color
 
 // Setter for the section color
 function setSectionColor(color, section){
@@ -35,10 +35,10 @@ function setSectionColor(color, section){
         resetColor();
         setColorText(color);
         return $('.codeup-logo > path').addClass(color);
-    } else{
+    } else{ // run if an individual section was passed in, rather than 'all' (e.g. 'path2')
         $(section).removeClass(getSectionColor(section));
         return $(section).addClass(color);
-    }
+    } // we don't have to change the #colorText element because we're going to set that in the next rainbow function
     // if individual section is passed in, change its color (used for Rainbow effect)
 }
 setSectionColor('purple', 'all');
@@ -53,6 +53,11 @@ function resetColor(){
 }
 
 // write a function called rainbowLogo() that changes the logo to rainbow colors
+// PSEUDO CODE:
+// 1. Create some text 'r a i n b o w' with letters individually colored in rainbow colors
+    //a. set that text in the #colorText span (inside the header 'Codeup Logo in SVG Form')
+// 2. Target each path(section) in the logo individually, and color them rainbow colors
+    //e.g. path1 = red, path2 = orange, path3 = yellow, etc.
 function rainbowLogo(){
     var text = 'rainbow';
     var logoSections = ['#path1', '#path2', '#path3', '#path4', '#path5', '#path6'];
@@ -60,16 +65,18 @@ function rainbowLogo(){
     var i = 0;
     var counter = 0;
 
-    logoSections.forEach(function (sectionId) {
+    logoSections.forEach(function (sectionId) { // iterates through the logoSections array, beginning at the first target (colors[counter] OR colors[i = 0]), and assigning a color from the colors array as it progresses
         setSectionColor(colors[counter], sectionId);
         counter++;
     });
     // split up the 'rainbow' text and make it rainbow
     var colorfulText = []; // empty bucket
-    var i = 0;
+    var i = 0; // have two counters, as there are more letters than colors...thus, once all colors run, reset and start back at beginning color until letters finished
     counter = 0; // variable already stated above
-    text.split('').forEach(function (letter) {
-        colorfulText[i] = '<span class="' + colors[counter] + '">' + letter + '</span>';
+    text.split('').forEach(function (letter) { // splits up variable word 'rainbow' into individual letters in an array
+        //text.split --> ['r','a','i','n','b','o','w']
+        //forEach loop --> (1) letter = r, (2) letter = a, ...
+        colorfulText[i] = '<span class="' + colors[counter] + '">' + letter + '</span>'; // adds individual letters into the array bucket and assigns each a <span> with ALSO a class name of the color it hits with in sequence. (e.g. expected output array with each letter: ['<span class="red">r</span>', <span class="orange">a</span>', ...])
         if(counter === 5){
             counter = 0; // reset once all colors in array are assigned, and start over again (at red)
         }
@@ -87,7 +94,7 @@ console.log(rainbowLogo());
 // Set a variable called circleClickCount, to keep track of how many times an individual circle has been clicked
 
 
-// Add a click listener to each of the 'circle' elements at the botto of the page, and make each color circle
+// Add a click listener to each of the 'circle' elements at the bottom of the page, and make each color circle
 // change the logo to the clicked color, or rainbow, if rainbow was clicked
 // If the same color is clicked twice, toggle the 'caps' class to UPPERCASE and lowercase the color name
 
