@@ -135,7 +135,6 @@ $('.circle').click(function(){
 $('.circle').each(function(index){
     console.log(("added border to circle" + index));
     return $(this).css('border', '1px solid black');
-
 });
 
 // TODO: Let's take the border away from the first circle
