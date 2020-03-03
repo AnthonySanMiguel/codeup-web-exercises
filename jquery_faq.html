@@ -2,20 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
     <title>jQuery FAQ Exercise (National Parks)</title>
+
     <style>
-        h2 {
+
+        h2, ul{
             display: none;
         }
+
     </style>
+
 </head>
 <body>
-<div>
-    <h1>Would you like to sign up for our newsletter?</h1>
-    <span>X</span>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Are you <strong>SURE</strong> you don't want to sign up?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<h2>Are you <strong>SURE</strong> you don't want to sign up?</h2>
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Welcome!</strong> We hope you enjoy our interactive site!
+</div>
+
+<div id="newsletter_notice">
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span id="x_button">X</span>
+</div>
+
+<!--<h2 id="newsletter_reminder">Are you <strong>SURE</strong> you don't want to sign up?</h2>-->
 
 <!--<h1>National Park Facts</h1>-->
 <!--<br>-->
@@ -80,6 +106,8 @@
 </ul>
 
 <script src="js/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script>
     $(function() { // COMMENT OUT FUNCTIONS BELOW INDIVIDUALLY TO TEST
@@ -108,8 +136,8 @@
         //     });
         // });
 
-        $('span').click(function() { // When the 'X' is clicked, hide the entire div element.
-            $('div').hide();
+        $('#x_button').click(function() { // When the 'X' is clicked, hide the entire div element.
+            $('#newsletter_notice').hide();
         });
 
         $('h3').click(function() { // When any h3 is clicked (individually), the display of the ul should be toggled with a sliding effect.
@@ -117,8 +145,15 @@
             $(this).next().slideToggle(400);
         });
 
-            $('h2').delay(8000).fadeIn(800); // After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
+
+        // $('h2').delay(8000).fadeIn(800); // After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
+
+        setTimeout(function() {
+            $('#myModal').modal();
+        }, 8000);
+
     });
+
 </script>
 </body>
 </html>
