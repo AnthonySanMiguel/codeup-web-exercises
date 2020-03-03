@@ -41,45 +41,45 @@
     <span id="x_button">X</span>
 </div>
 
-<!--<h2 id="newsletter_reminder">Are you <strong>SURE</strong> you don't want to sign up?</h2>-->
+<h2 id="newsletter_reminder">Are you <strong>SURE</strong> you don't want to sign up?</h2>
 
-<!--<h1>National Park Facts</h1>-->
-<!--<br>-->
-<!--<button id="button">Show/Hide the Facts!</button>-->
-<!--<dl>-->
-<!--    <dt>1. President's Park, Washington DC</dt>-->
-<!--    <dd class="invisible">As the White House is located on this property, this park consistently houses a U.S. president.</dd>-->
-<!--    <br>-->
-<!--    <dt>2. Denali National Park, Alaska.</dt>-->
-<!--    <dd class="invisible">Houses the tallest mountain in North America.</dd>-->
-<!--    <br>-->
-<!--    <dt>3. Kalaupapa National Historical Park, Hawaii.</dt>-->
-<!--    <dd class="invisible">Used to be a leper colony.</dd>-->
-<!--    <br>-->
-<!--    <dt>4. Mammoth Cave National Park, Kentucky.</dt>-->
-<!--    <dd class="invisible">Consists of 400 miles of caves, chambers, and tunnels available to explore.</dd>-->
-<!--    <br>-->
-<!--    <dt>5. Death Valley National Park, California and Nevada.</dt>-->
-<!--    <dd class="invisible">Location for filming the planet Tatooine from the original Star Wars movies.</dd>-->
-<!--    <br>-->
-<!--    <dt>6. Great Basin National Park, Nevada.</dt>-->
-<!--    <dd class="invisible">Known for having some of the darkest skies in the continental U.S.</dd>-->
-<!--    <br>-->
-<!--    <dt>7. Yosemite National Park, California</dt>-->
-<!--    <dd class="invisible">Contains Giant Sequoias, which are one of the largest living things on the planet.</dd>-->
-<!--    <br>-->
-<!--    <dt>8. Yosemite National Park, California.</dt>-->
-<!--    <dd class="invisible">Nearly 1,200 sq. mi., a majority of the park is largely untouched and uninhabited by humans.</dd>-->
-<!--    <br>-->
-<!--    <dt>9. Canyonlands National Park, Utah.</dt>-->
-<!--    <dd class="invisible">Location for filming "127 Hours", starring James Franco.</dd>-->
-<!--    <br>-->
-<!--    <dt>10. Kenai Fjords National Park, Alaska.</dt>-->
-<!--    <dd class="invisible">Where three-centimeter-long ice worms live inside glaciers, moving through ice using small bristles on their bodies.</dd>-->
-<!--    <br>-->
-<!--</dl>-->
+<h1>National Park Facts</h1>
+<br>
+<button id="button">Show/Hide the Facts!</button>
+<dl>
+    <dt>1. President's Park, Washington DC</dt>
+    <dd>As the White House is located on this property, this park consistently houses a U.S. president.</dd>
+    <br>
+    <dt>2. Denali National Park, Alaska.</dt>
+    <dd>Houses the tallest mountain in North America.</dd>
+    <br>
+    <dt>3. Kalaupapa National Historical Park, Hawaii.</dt>
+    <dd>Used to be a leper colony.</dd>
+    <br>
+    <dt>4. Mammoth Cave National Park, Kentucky.</dt>
+    <dd>Consists of 400 miles of caves, chambers, and tunnels available to explore.</dd>
+    <br>
+    <dt>5. Death Valley National Park, California and Nevada.</dt>
+    <dd>Location for filming the planet Tatooine from the original Star Wars movies.</dd>
+    <br>
+    <dt>6. Great Basin National Park, Nevada.</dt>
+    <dd>Known for having some of the darkest skies in the continental U.S.</dd>
+    <br>
+    <dt>7. Yosemite National Park, California</dt>
+    <dd>Contains Giant Sequoias, which are one of the largest living things on the planet.</dd>
+    <br>
+    <dt>8. Yosemite National Park, California.</dt>
+    <dd>Nearly 1,200 sq. mi., a majority of the park is largely untouched and uninhabited by humans.</dd>
+    <br>
+    <dt>9. Canyonlands National Park, Utah.</dt>
+    <dd>Location for filming "127 Hours", starring James Franco.</dd>
+    <br>
+    <dt>10. Kenai Fjords National Park, Alaska.</dt>
+    <dd>Where three-centimeter-long ice worms live inside glaciers, moving through ice using small bristles on their bodies.</dd>
+    <br>
+</dl>
 
-<!--<button id="button2">Highlight the last facts!</button>-->
+<button id="button2">Highlight the last facts!</button>
 
 <h3>Sequoia National Park, California</h3>
 <ul>
@@ -112,29 +112,29 @@
 <script>
     $(function() { // COMMENT OUT FUNCTIONS BELOW INDIVIDUALLY TO TEST
 
-        // $("#button").click(function (e) {
-        //     e.preventDefault(); // Need to add prevent default if using a button for click event (so no form info is submitted)
-        //     $("dd").toggle(); // Toggles all definitions on/off with button click
-        //     $("dt").click(function () { // When any one dt element is clicked on, background will change to yellow
-        //         $(this).css('background-color', 'yellow');
-        //     });
-        //
-        //
-        //     $("#button2").click(function (e) { // Will highlight only last child in li elements yellow
-        //         e.preventDefault();
-        //         $("li:last-child").css("background-color", "yellow");
-        //     });
-        //
-        //
-        //     $("h3").click(function () { // When any one h3 element is clicked on, first list item under it will turn bold
-        //         $(this).next().children().first().css('font-weight', 'bold'); // To get ALL list items under each h3, remove the .first()
-        //     });
-        //
-        //
-        //     $("li").click(function () { // When any one li element is clicked on, first list item in its list will turn blue
-        //         $(this).first().css('color', 'blue');
-        //     });
-        // });
+        $("#button").click(function (e) {
+            e.preventDefault(); // Need to add prevent default if using a button for click event (so no form info is submitted)
+            $("dd").toggle(); // Toggles all definitions on/off with button click
+            $("dt").click(function () { // When any one dt element is clicked on, background will change to yellow
+                $(this).css('background-color', 'yellow');
+            });
+
+
+            $("#button2").click(function (e) { // Will highlight only last child in li elements yellow
+                e.preventDefault();
+                $("li:last-child").css("background-color", "yellow");
+            });
+
+
+            $("h3").click(function () { // When any one h3 element is clicked on, first list item under it will turn bold
+                $(this).next().children().first().css('font-weight', 'bold'); // To get ALL list items under each h3, remove the .first()
+            });
+
+
+            $("li").click(function () { // When any one li element is clicked on, first list item in its list will turn blue
+                $(this).first().css('color', 'blue');
+            });
+        });
 
         $('#x_button').click(function() { // When the 'X' is clicked, hide the entire div element.
             $('#newsletter_notice').hide();
