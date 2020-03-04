@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Online Store</title>
 
     <style>
+        body{
+            margin: 1em;
+        }
+
         th, td, #products{
             border: 1px solid black;
         }
@@ -21,6 +24,7 @@
         th{
             background-color: #0056b3;
             color: white;
+            text-align: center;
         }
     </style>
 
@@ -35,6 +39,7 @@
             <th>Title</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>UOM</th>
             <th>Categories</th>
         </tr>
     </thead>
@@ -46,48 +51,64 @@
 </button>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
-(function() {
-    "use strict";
-    // TODO: Create an ajax GET request for /data/inventory.json
+    // $(document).ready(function() {
+    //     "use strict";
+    //
+    //     $.getJSON("data/inventory.json",
+    //         function getData(data) {
+    //             var tr;
+    //             for (var i = 0; i < data.length; i++) {
+    //                 tr = $('<tr>');
+    //                 tr.append("<td>" + data[i].title + "</td>");
+    //                 tr.append("<td class='text-center'>" + data[i].quantity + "</td>");
+    //                 tr.append("<td class='text-right'>" + "<span>$</span>" + (data[i].price).toFixed(2) + "</td>");
+    //                 tr.append("<td class='text-center'>" + data[i].UOM + "</td>");
+    //                 tr.append("<td>" + data[i].categories + "</td>");
+    //                 $('table').append(tr);
+    //             }
+    //             getData();
+    //
+    //             $("#refresh").click(function () {
+    //                 $('data').html("");
+    //             });
+    //             getData();
+    //
+    //         });
+    // });
 
-    $.ajax("data/inventory.json");
+    // AUSTIN GRAY: FOR EACH SOLUTION
+    $(document).ready(function() {
+        var displayInventory = 0;
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-
-    console.log($.ajax("data/inventory.json"));
-
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-
-$.getJSON("data/inventory.json",
-        function (data) {
-            var tr;
-            for (var i = 0; i < data.length; i++) {
-                tr = $('<tr>');
-                tr.append("<td>" + data[i].title + "</td>");
-                tr.append("<td>" + data[i].quantity + "</td>");
-                tr.append("<td>" + "<span>$</span>" + (data[i].price).toFixed(2) + "</td>");
-                tr.append("<td>" + data[i].categories + "</td>");
-                $('table').append(tr);
+        function loadData() {
+            if (displayInventory === 0) {
+                $.get("data/inventory.json").done(function (data) {
+                    $.each(data, function (i, items) {
+                        $('#insertProducts').append(
+                        '<tr>' +
+                        '<td>' + items.title + '</td>' +
+                        '<td>' + items.quantity + '</td>' +
+                        '<td>' + items.price + '</td>' +
+                        '<td>' + items.UOM + '</td>' +
+                        '<td>' + items.categories + '</td>' +
+                        '</tr>');
+                        })
+                    })
+                }
+                return displayInventory = 1;
             }
+
+            loadData(displayInventory);
+
+        $("#refresh").click(function () {
+            $('#insertProducts').html("");
+            return loadData(displayInventory = 0);
         });
+    })
 
-        // $(document).ready(function () {
-        //     $("#refresh").click(function () {
-        //         // location.reload(true);
-        //         $('#insertProducts').DataTable().ajax.reload();
-        //     });
-        // });
-
-})();
 </script>
 </body>
 </html>

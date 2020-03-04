@@ -3,54 +3,61 @@
         "title": "Grid Squares (Box of 20)",
         "quantity": 80,
         "categories": [
-            "survival",
-            "navigation"
+            "Survival",
+            "Navigation"
         ],
-        "price": 10.4
+        "price": 10.4,
+        "UOM": "BX"
     }, {
         "title": "Spare HMMWV Key",
         "quantity": 25,
         "categories": [
-            "vehicle"
+            "Vehicle"
         ],
-        "price": 50
-    }, {
+        "price": 50,
+        "UOM": "EA"
+}, {
         "title": "Headlight Fluid",
-        "quantity": 200,
+        "quantity": 66,
         "categories": [
-            "vehicle",
-            "supplies"
+            "Vehicle",
+            "Supplies"
         ],
-        "price": 12
-    }, {
+        "price": 12,
+        "UOM": "GAL"
+}, {
         "title": "Glowbelt Charger",
         "quantity": 50,
         "categories": [
-            "fitness"
+            "Fitness"
         ],
-        "price": 35
+        "price": 35,
+        "UOM": "PK"
     }, {
-    "title": "Rotorwash (5 Gallon)",
-    "quantity": 360,
+    "title": "Rotorwash (5 Gallons)",
+    "quantity": 24,
     "categories": [
-        "vehicle",
-        "supplies"
+        "Vehicle",
+        "Supplies"
     ],
-    "price": 700
+    "price": 360,
+    "UOM": "EA"
     }, {
     "title": "I.D. 10T Cable",
     "quantity": 1337,
     "categories": [
-        "survival"
+        "Survival"
     ],
-    "price": 30
+    "price": 30,
+    "UOM": "RL"
     }, {
     "title": "Chemlight Batteries",
     "quantity": 45,
     "categories": [
-        "fitness",
-        "outdoor"
+        "Fitness",
+        "Outdoor"
     ],
-    "price": 3.5
+    "price": 3.5,
+    "UOM": "EA"
     }
 ]
