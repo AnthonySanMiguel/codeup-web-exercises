@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Grid Squares (Box of 20)",
+        "quantity": 80,
+        "categories": [
+            "survival",
+            "navigation"
+        ],
+        "price": 10.4
+    }, {
+        "title": "Spare HMMWV Key",
+        "quantity": 25,
+        "categories": [
+            "vehicle"
+        ],
+        "price": 50
+    }, {
+        "title": "Headlight Fluid",
+        "quantity": 200,
+        "categories": [
+            "vehicle",
+            "supplies"
+        ],
+        "price": 12
+    }, {
+        "title": "Glowbelt Charger",
+        "quantity": 50,
+        "categories": [
+            "fitness"
+        ],
+        "price": 35
+    }, {
+    "title": "Rotorwash (5 Gallon)",
+    "quantity": 360,
+    "categories": [
+        "vehicle",
+        "supplies"
+    ],
+    "price": 700
+    }, {
+    "title": "I.D. 10T Cable",
+    "quantity": 1337,
+    "categories": [
+        "survival"
+    ],
+    "price": 30
+    }, {
+    "title": "Chemlight Batteries",
+    "quantity": 45,
+    "categories": [
+        "fitness",
+        "outdoor"
+    ],
+    "price": 3.5
+    }
+]
