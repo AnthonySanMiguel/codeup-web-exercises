@@ -1,51 +1,8 @@
 "use strict";
 
-var weatherIcons = [
-    {
-        condition: "clear-day",
-        imgUrl: 'img/clear-day.svg'
-    },
-    {
-        condition: "clear-night",
-        imgUrl: 'img/clear-night.svg'
-    },
-    {
-        condition: "rain",
-        imgUrl: 'img/rain.svg'
-    },
-    {
-        condition: "snow",
-        imgUrl: 'img/snow.svg'
-    },
-    {
-        condition: "sleet",
-        imgUrl: 'img/sleet.svg'
-    },
-    {
-        condition: "wind",
-        imgUrl: 'img/wind.svg'
-    },
-    {
-        condition: "fog",
-        imgUrl: 'img/fog.svg'
-    },
-    {
-        condition: "cloudy",
-        imgUrl: 'img/cloudy.svg'
-    },
-    {
-        condition: "partly-cloudy-day",
-        imgUrl: 'img/partly-cloudy-day.svg'
-    },
-    {
-        condition: "partly-cloudy-night",
-        imgUrl: 'img/partly-cloudy-night.svg'
-    }
-];
+$(document).ready(function (coordinates, token) {
 
-$(document).ready(function() {
-
-    getWeather(60.1282, 18.6435);
+    getWeather(36.1699, -115.1398);
 
     function getWeather(latitude, longitude) {
         $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latitude + "," + longitude).done(function (data) {
@@ -60,7 +17,7 @@ $(document).ready(function() {
 
             $("#location_name").append(
                 "<div>" +
-                "<h3>" + latitudeName + " " + longitudeName + "</h3>" +
+                "<h3>" + latitudeName + longitudeName + "</h3>" +
                 "</div>");
 
             mapboxgl.accessToken = mapboxToken;
@@ -72,9 +29,38 @@ $(document).ready(function() {
                 zoom: 11
             });
 
-            //marker
-            //dragger
+
+            reverseGeocode({lng: longitudeName, lat: latitudeName}, mapboxToken).then(function (result) { // Open JS console to see physical address text result for entered coordinates.
+                console.log(result);
+                map.setCenter(result); // Center map on refresh on result coordinates
+                map.setZoom(17); // Default zoom on page refresh
+                map.flyTo({center: result, zoom: 15}) ;// Will "fly" to searched address on page refresh
+                return result.html()
+            });
+
+
+            var popup = new mapboxgl.Popup()
+                .setHTML("<p>" + reverseGeocode({lng: longitudeName, lat: latitudeName}, mapboxToken) + "</p>");
+
+            var marker = new mapboxgl.Marker({
+                draggable: true,
+                color: "red"
+            })
+                .setLngLat([longitudeName, latitudeName])
+                .addTo(map)
+                .setPopup(popup);
             //update your stuff
+
+
+            function onDragEnd() {
+                var lngLat = marker.getLngLat();
+                coordinates.style.display = 'block';
+                coordinates.innerHTML =
+                    'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+            }
+
+            marker.on('dragend', onDragEnd);
+
 
 
 
@@ -84,35 +70,12 @@ $(document).ready(function() {
 
     }
 
-    // var grabObject = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/60.1282,18.6435").done(function (data) {
-    //     console.log(data);
-    //
-    //     var latitude = data.latitude;
-    //     var longitude = data.longitude;
-    //
-    //     var locationName = $.ajax(grabObject).done(function (data) {
-    //         $("#location_name").append(
-    //             "<div>" +
-    //             "<h3>" + latitude + " " + longitude + "</h3>" +
-    //             "</div>");
-    //     });
-    //
-    //     mapboxgl.accessToken = mapboxToken;
-    //
-    //     var map = new mapboxgl.Map({
-    //         container: 'map',
-    //         style: 'mapbox://styles/mapbox/streets-v9',
-    //         center: [longitude, latitude],
-    //         zoom: 11
-    //     });
-    // });
-
     function makeDay1(data) {
 
         $("#day1").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
-            "<h3>" + data.daily.data[0].temperatureHigh + "&#176" + "/" + data.daily.data[0].temperatureLow + "&#176" + "</h3>" +
-            "<p>" + data.daily.data[0].icon + "</p>" +
+            "<h3>" + data.daily.data[0].apparentTemperatureHigh + "&#176" + "/" + data.daily.data[0].apparentTemperatureLow + "&#176" + "</h3>" +
+            "<p><img src='img/" + data.daily.data[0].icon + ".svg'" + "</p>" +
             "<p>" + "<strong>Summary: </strong>" + data.daily.data[0].summary + "</p>" +
             "<p>" + "<strong>Humidity: </strong>" + data.daily.data[0].humidity + "</p>" +
             "<p>" + "<strong>Wind: </strong>" + data.daily.data[0].windSpeed + "</p>" +
@@ -126,8 +89,8 @@ $(document).ready(function() {
 
         $("#day2").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
-            "<h3>" + data.daily.data[1].temperatureHigh + "&#176" + "/" + data.daily.data[1].temperatureLow + "&#176" + "</h3>" +
-            "<p>" + data.daily.data[1].icon + "</p>" +
+            "<h3>" + data.daily.data[1].apparentTemperatureHigh + "&#176" + "/" + data.daily.data[1].apparentTemperatureLow + "&#176" + "</h3>" +
+            "<p><img src='img/" + data.daily.data[1].icon + ".svg'" + "</p>" +
             "<p>" + "<strong>Summary: </strong>" + data.daily.data[1].summary + "</p>" +
             "<p>" + "<strong>Humidity: </strong>" + data.daily.data[1].humidity + "</p>" +
             "<p>" + "<strong>Wind: </strong>" + data.daily.data[1].windSpeed + "</p>" +
@@ -140,8 +103,8 @@ $(document).ready(function() {
 
         $("#day3").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
-            "<h3>" + data.daily.data[2].temperatureHigh + "&#176" + "/" + data.daily.data[2].temperatureLow + "&#176" + "</h3>" +
-            "<p>" + data.daily.data[2].icon + "</p>" +
+            "<h3>" + data.daily.data[2].apparentTemperatureHigh + "&#176" + "/" + data.daily.data[2].apparentTemperatureLow + "&#176" + "</h3>" +
+            "<p><img src='img/" + data.daily.data[2].icon + ".svg'" + "</p>" +
             "<p>" + "<strong>Summary: </strong>" + data.daily.data[2].summary + "</p>" +
             "<p>" + "<strong>Humidity: </strong>" + data.daily.data[2].humidity + "</p>" +
             "<p>" + "<strong>Wind: </strong>" + data.daily.data[2].windSpeed + "</p>" +
@@ -151,48 +114,6 @@ $(document).ready(function() {
     }
 
 });
-
-                // var forecastDay1 = $.ajax(grabObject).done(function (data) {
-                // $("#day1").html(
-                //     "<div class='text-center' style='background-color:whitesmoke'>" +
-                //     "<h3>" + data.daily.data[0].temperatureHigh + "&#176" + "/" + data.daily.data[0].temperatureLow + "&#176" + "</h3>" +
-                //     "<p>" + data.daily.data[0].icon + "</p>" +
-                //     "<p>" + "<strong>Summary: </strong>" + data.daily.data[0].summary + "</p>" +
-                //     "<p>" + "<strong>Humidity: </strong>" + data.daily.data[0].humidity + "</p>" +
-                //     "<p>" + "<strong>Wind: </strong>" + data.daily.data[0].windSpeed + "</p>" +
-                //     "<p>" + "<strong>Pressure: </strong>" + data.daily.data[0].pressure + "</p>" +
-                //     "<p>" + "<strong>" + new Date(data.daily.data[0].time * 1000).toDateString() + "</strong>" + "</p>" +
-                //     "</div>");
-
-                // var forecastDay2 = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/60.1282,18.6435").done(function (data) {
-                //     $("#day2").html(
-                //         "<div class='text-center' style='background-color:whitesmoke'>" +
-                //         "<h3>" + data.daily.data[1].temperatureHigh + "&#176" + "/" + data.daily.data[1].temperatureLow + "&#176" + "</h3>" +
-                //         "<p>" + data.daily.data[1].icon + "</p>" +
-                //         "<p>" + "<strong>Summary: </strong>" + data.daily.data[1].summary + "</p>" +
-                //         "<p>" + "<strong>Humidity: </strong>" + data.daily.data[1].humidity + "</p>" +
-                //         "<p>" + "<strong>Wind: </strong>" + data.daily.data[1].windSpeed + "</p>" +
-                //         "<p>" + "<strong>Pressure: </strong>" + data.daily.data[1].pressure + "</p>" +
-                //         "<p>" + "<strong>" + new Date(data.daily.data[1].time * 1000).toDateString() + "</strong>" + "</p>" +
-                //         "</div>");
-                //
-                // })
-                //     var forecastDay3 = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/60.1282,18.6435").done(function (data) {
-                //         $("#day3").html(
-                //             "<div class='text-center' style='background-color:whitesmoke'>" +
-                //             "<h3>" + data.daily.data[2].temperatureHigh + "&#176" + "/" + data.daily.data[2].temperatureLow + "&#176" + "</h3>" +
-                //             "<p>" + data.daily.data[2].icon + "</p>" +
-                //             "<p>" + "<strong>Summary: </strong>" + data.daily.data[2].summary + "</p>" +
-                //             "<p>" + "<strong>Humidity: </strong>" + data.daily.data[2].humidity + "</p>" +
-                //             "<p>" + "<strong>Wind: </strong>" + data.daily.data[2].windSpeed + "</p>" +
-                //             "<p>" + "<strong>Pressure: </strong>" + data.daily.data[2].pressure + "</p>" +
-                //             "<p>" + "<strong>" + new Date(data.daily.data[2].time * 1000).toDateString() + "</strong>" + "</p>" +
-                //             "</div>");
-                //     });
-                // })
-    //         });
-    //     });
-    // });
 
 //----------------------------------RESTAURANT OBJECTS-------------------------------------------------
 
@@ -245,7 +166,7 @@ $(document).ready(function() {
 // });
 
 /**********************************************
- * 			CUSTOMIZING THE MAP
+ *            CUSTOMIZING THE MAP
  *********************************************/
 // Predefined map styles --> https://docs.mapbox.com/mapbox-gl-js/api/#map
 // A map center can be set by passing in the latitude and longitude coordinates of a location as an array [LONGITUDE_VALUE, LATITUDE_VALUE]
@@ -276,7 +197,7 @@ $(document).ready(function() {
 // });
 
 /**********************************************
- * 					MARKERS
+ *                    MARKERS
  *********************************************/
 // Marker Docs --> https://docs.mapbox.com/mapbox-gl-js/api/#marker
 // Markers are specific locations on a map
@@ -312,7 +233,7 @@ $(document).ready(function() {
 //     .addTo(map);
 
 /**********************************************
- * 					POPUPS
+ *                    POPUPS
  *********************************************/
 // Popups are the info boxes that appear on a map and may describe a given location.
 // Popup docs --> https://docs.mapbox.com/mapbox-gl-js/api/#popup
@@ -338,7 +259,7 @@ $(document).ready(function() {
 //.setText() does not allow in-line HTML element tags and styling
 
 /**********************************************
- * 					Geocoder
+ *                    Geocoder
  *********************************************/
 // Geocoding Docs --> https://docs.mapbox.com/api/search/#geocoding
 
