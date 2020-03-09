@@ -15,20 +15,6 @@ var map = new mapboxgl.Map({ // Mapbox API map styling and location origin
 
 //-----------------------------------------------
 
-var layerList = document.getElementById("menu"); // Mapbox API adds radio buttons to change map styling
-var inputs = layerList.getElementsByTagName("input");
-
-function switchLayer(layer) {
-    var layerId = layer.target.id;
-    map.setStyle("mapbox://styles/mapbox/" + layerId);
-}
-
-for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
-}
-
-//-----------------------------------------------
-
 var geoCoder = new MapboxGeocoder({ // Mapbox API geocoder to retrieve coordinates from text entered in Search box
     accessToken: mapboxgl.accessToken,
     marker: false,
@@ -44,24 +30,6 @@ geoCoder.on("result", function(e){ // Mapbox API geoCoder function will return d
         marker.addTo(map); // Places new marker at coordinates for data object searched (e.g. anywhere else than starting point)
         getWeather(e.result.geometry.coordinates[1], e.result.geometry.coordinates[0]); // Pings DarkSky API with MapBox API coordinates retrieved on Search
 });
-
-//-----------------------------------------------
-
-var nav = new mapboxgl.NavigationControl(); // Mapbox API adds map zoom and controls to desired location (e.g. 'top-left')
-map.addControl(nav, "top-left");
-
-//-----------------------------------------------
-
-map.addControl(new mapboxgl.GeolocateControl({ // Mapbox API adds a button to define current user location on map
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-        trackUserLocation: true
-}));
-
-//-----------------------------------------------
-
-map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('#map')})); // Mapbox API will add a full screen button to map, showing targeted elements
 
 //-----------------------------------------------
 
@@ -86,12 +54,43 @@ function onDragEnd(lat, lng) { // Mapbox API displays marker coordinates on bott
 marker.on("dragend", onDragEnd); // At end of marker drag interaction ("dragend"), run the onDragEnd function
 marker.on("dragend", getWeather); // At end of marker drag interaction ('dragend'), run the getWeather function
 
+//---------------MAP EMBELLISHMENTS: START--------------------
+
+    var nav = new mapboxgl.NavigationControl(); // Mapbox API adds map zoom and controls to desired location (e.g. 'top-left')
+    map.addControl(nav, "top-left");
+
 //-----------------------------------------------
 
+    map.addControl(new mapboxgl.GeolocateControl({ // Mapbox API adds a button to define current user location on map
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    }));
+
+//-----------------------------------------------
+
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('#day1', '#map')})); // Mapbox API will add a full screen button to map, showing targeted elements
+
+//-----------------------------------------------
+
+    var layerList = document.getElementById("menu"); // Mapbox API adds radio buttons to change map styling
+    var inputs = layerList.getElementsByTagName("input");
+
+    function switchLayer(layer) {
+        var layerId = layer.target.id;
+        map.setStyle("mapbox://styles/mapbox/" + layerId);
+    }
+
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = switchLayer;
+    }
     function getWeather(latitude, longitude) {
 
         latitude = marker.getLngLat().lat; // Defines latitude and longitude with MapBox API coordinates
         longitude = marker.getLngLat().lng;
+
+//---------------MAP EMBELLISHMENTS: END--------------------
 
         $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latitude + "," + longitude).done(function (data) {
             // console.log(data); // Will retrieve DarkSky API object with weather information for MapBox API coordinates (e.g. marker.getLngLat().lat/marker.getLngLat().lng) in "getWeather" function
@@ -104,20 +103,16 @@ marker.on("dragend", getWeather); // At end of marker drag interaction ('dragend
 
             //-----------------------------------------------
 
-            // marker.on("dragend", getWeather); // At end of marker drag interaction ('dragend'), run the getWeather function
-
-            //-----------------------------------------------
-
             reverseGeocode({ // Retrieve address text from marker coordinates on dragEnd
                 lng: marker.getLngLat().lng,
                 lat: marker.getLngLat().lat
             },
                 mapboxgl.accessToken).then(function (results) {
-                // console.log(results);
+                // console.log(results); // Console log entire data object retrieved from MapBox API reverseGeoCoder
 
                 $("#location_name").html( // Display address text in #location_name div
                     "<div>" +
-                    results.features[0].place_name +
+                    results.features[0].place_name + // Only show the place_name for the data object retrieved
                     "</div>");
             });
 
