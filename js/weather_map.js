@@ -2,7 +2,7 @@
 
 $(document).ready(function (coordinates, token) {
 
-    getWeather(59.9139, 10.7522); // Using DarkSky API
+    getWeather(29.4241, -98.4936); // Using DarkSky API
 
     function getWeather(latitude, longitude) {
         $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latitude + "," + longitude).done(function (data) {
@@ -56,14 +56,18 @@ $(document).ready(function (coordinates, token) {
             }
             marker.on('dragend', onDragEnd); // At end of marker drag interaction ('dragend'), run the onDragEnd function
 
-            reverseGeocode(onDragEnd(), mapboxToken).then(function (result) { // Open JS console to see physical address text result for entered coordinates.
-                console.log(result);
+           var addressName = reverseGeocode({lng: data.longitude, lat: data.latitude}, mapboxgl.accessToken).then(function(results) { // Retrieve address from coordinates
+                console.log(results);
             });
 
             //update your stuff
 
-        });
+            $("#location_name").html( // Attempting to display address text from coordinates
+                "<div>" +
+                addressName +
+                "</div>");
 
+        });
     }
 
     function makeDay1(data) {
