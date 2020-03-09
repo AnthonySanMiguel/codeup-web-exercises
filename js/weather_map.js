@@ -70,7 +70,7 @@ marker.on("dragend", getWeather); // At end of marker drag interaction ('dragend
 
 //-----------------------------------------------
 
-    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('#day1', '#map')})); // Mapbox API will add a full screen button to map, showing targeted elements
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('#map')})); // Mapbox API will add a full screen button to map, showing targeted elements
 
 //-----------------------------------------------
 
