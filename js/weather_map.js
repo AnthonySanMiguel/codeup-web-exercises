@@ -29,7 +29,7 @@ for (var i = 0; i < inputs.length; i++) {
 
 //-----------------------------------------------
 
-var geoCoder = new MapboxGeocoder({ // Mapbox API geocoder to retrieve coordinates from text input in search box
+var geoCoder = new MapboxGeocoder({ // Mapbox API geocoder to retrieve coordinates from text entered in Search box
     accessToken: mapboxgl.accessToken,
     marker: false,
     mapboxgl: mapboxgl
@@ -39,10 +39,10 @@ map.addControl(geoCoder // Takes in geoCoder variable above
 );
 
 geoCoder.on("result", function(e){ // Mapbox API geoCoder function will return data object for location typed into Search box...only console log "e" to retrieve the whole object, or use the specificity present to only retrieve MapBox API coordinates
-    console.log(e);
-        marker.setLngLat([e.result.geometry.coordinates[0], e.result.geometry.coordinates[1]]);
-        marker.addTo(map);
-        getWeather(e.result.geometry.coordinates[1], e.result.geometry.coordinates[0]);
+    console.log(e); // Mapbox API geocoder will return data object with location information
+        marker.setLngLat([e.result.geometry.coordinates[0], e.result.geometry.coordinates[1]]); // Grabs latitude[0] and longitude[1] for data object searched for (e.g. anywhere else than starting point)
+        marker.addTo(map); // Places new marker at coordinates for data object searched (e.g. anywhere else than starting point)
+        getWeather(e.result.geometry.coordinates[1], e.result.geometry.coordinates[0]); // Pings DarkSky API with MapBox API coordinates retrieved on Search
 });
 
 //-----------------------------------------------
@@ -113,11 +113,11 @@ marker.on("dragend", getWeather); // At end of marker drag interaction ('dragend
                 lat: marker.getLngLat().lat
             },
                 mapboxgl.accessToken).then(function (results) {
-                console.log(results);
+                // console.log(results);
 
                 $("#location_name").html( // Display address text in #location_name div
                     "<div>" +
-                    results +
+                    results.features[0].place_name +
                     "</div>");
             });
 
