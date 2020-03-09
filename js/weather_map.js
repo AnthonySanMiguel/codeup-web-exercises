@@ -15,11 +15,6 @@ $(document).ready(function (coordinates, token) {
             var latitudeName = data.latitude; // Setting DarkSky API latitude as a variable
             var longitudeName = data.longitude; // Setting DarkSky API longitude as a variable
 
-            $("#location_name").append( // Dynamically display location name text as an h2 from coordinates via reversegeocode function
-                "<div>" +
-                "<p>" + longitudeName + latitudeName + "</p>" +
-                "</div>");
-
             mapboxgl.accessToken = mapboxToken; // Variable linking Mapbox API token
 
             var map = new mapboxgl.Map({ // Mapbox API map styling and location origin
@@ -54,9 +49,13 @@ $(document).ready(function (coordinates, token) {
                 coordinates.style.display = 'block';
                 coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br>Latitude: ' + lngLat.lat;
             }
+
             marker.on('dragend', onDragEnd); // At end of marker drag interaction ('dragend'), run the onDragEnd function
 
-           var addressName = reverseGeocode({lng: data.longitude, lat: data.latitude}, mapboxgl.accessToken).then(function(results) { // Retrieve address from coordinates
+            var addressName = reverseGeocode({
+                lng: data.longitude,
+                lat: data.latitude
+            }, mapboxgl.accessToken).then(function (results) { // Retrieve address from coordinates
                 console.log(results);
             });
 
@@ -75,7 +74,7 @@ $(document).ready(function (coordinates, token) {
         $("#day1").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
             "<h3>" + data.daily.data[0].apparentTemperatureHigh + "&#176" + "/" + data.daily.data[0].apparentTemperatureLow + "&#176" + "</h3>" +
-            "<p><img src='img/" + data.daily.data[0].icon + ".svg'" + "</p>" +
+            "<p><img alt='icon' src='img/" + data.daily.data[0].icon + ".svg'" + "</p>" +
             "<p>" + "<strong>Summary: </strong>" + "<em>" + data.daily.data[0].summary + "</em>" + "</p>" +
             "<p>" + "<strong>Humidity: </strong>" + data.daily.data[0].humidity + "</p>" +
             "<p>" + "<strong>Wind: </strong>" + data.daily.data[0].windSpeed + "</p>" +
@@ -89,7 +88,7 @@ $(document).ready(function (coordinates, token) {
         $("#day2").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
             "<h3>" + data.daily.data[1].apparentTemperatureHigh + "&#176" + "/" + data.daily.data[1].apparentTemperatureLow + "&#176" + "</h3>" +
-            "<p><img src='img/" + data.daily.data[1].icon + ".svg'" + "</p>" +
+            "<p><img alt='icon' src='img/" + data.daily.data[1].icon + ".svg'" + "</p>" +
             "<p>" + "<strong>Summary: </strong>" + "<em>" + data.daily.data[1].summary + "</em>" + "</p>" +
             "<p>" + "<strong>Humidity: </strong>" + data.daily.data[1].humidity + "</p>" +
             "<p>" + "<strong>Wind: </strong>" + data.daily.data[1].windSpeed + "</p>" +
@@ -103,7 +102,7 @@ $(document).ready(function (coordinates, token) {
         $("#day3").html(
             "<div class='text-center' style='background-color:whitesmoke'>" +
             "<h3>" + data.daily.data[2].apparentTemperatureHigh + "&#176" + "/" + data.daily.data[2].apparentTemperatureLow + "&#176" + "</h3>" +
-            "<p><img src='img/" + data.daily.data[2].icon + ".svg'" + "</p>" +
+            "<p><img alt='icon' src='img/" + data.daily.data[2].icon + ".svg'" + "</p>" +
             "<p>" + "<strong>Summary: </strong>" + "<em>" + data.daily.data[2].summary + "</em>" + "</p>" +
             "<p>" + "<strong>Humidity: </strong>" + data.daily.data[2].humidity + "</p>" +
             "<p>" + "<strong>Wind: </strong>" + data.daily.data[2].windSpeed + "</p>" +
