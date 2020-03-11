@@ -46,6 +46,11 @@ let atLeastThreeLanguages = users.filter(function(user){
 
 // console.log(atLeastThreeLanguages); // Returns all user objects that know at least 3 languages
 
+// INSTRUCTOR SOLUTION:
+
+// let skilledProfs = users.filter(user => user.languages.length >= 3);
+// console.log(skilledProfs);
+
 //------------------------------------
 
 // PROBLEM: Use .map to create an array of strings where each element is a user's email address
@@ -55,6 +60,10 @@ let justEmails = users.map(function(user){
 });
 
 // console.log(justEmails); // Returns all emails from user objects as an array of strings
+
+// INSTRUCTOR SOLUTION:
+// let emailAddies = users.map(user => user.email);
+// console.log(emailAddies);
 
 //------------------------------------
 
@@ -67,6 +76,11 @@ let totalExperience = users.reduce(function(total, user){
 
 // console.log(totalExperience); // Logs total years of experience for users object
 // console.log(totalExperience / users.length); // Logs the average years of experience for the users object (total experience / number of users)
+
+// INSTRUCTOR SOLUTION:
+// let totalExpYears = users.reduce((total, user) => total + user.yearsOfExperience, 0);
+// console.log("Average years of experience: ");
+// console.log(totalExpYears/users.length + ' years');
 
 //------------------------------------
 
@@ -82,6 +96,9 @@ let longestEmail = users.reduce((mostCharacters, eachEmail) => {
 
 // console.log(longestEmail);
 
+// INSTRUCTOR SOLUTION:
+// let longestEm = users.reduce((currentLongest, user) => user.email.length > currentLongest.length ? user.email : currentLongest,'j');
+// console.log(longestEm);
 //------------------------------------
 
 // PROBLEM: Use .reduce to get the list of user's names in a single string.
@@ -93,7 +110,11 @@ let justNames = users.map(function(user){
 
 // console.log(("Your instructors are: " + justNames).toString());
 
+// INSTRUCTOR SOLUTION:
+// let names = users.reduce((sentence, user) => sentence === '' ? user.name : sentence + ', ' + user.name,'');
+// console.log("Your instructors are: " + names + '.');
 //------------------------------------
 
 // PROBLEM: Use .reduce to get the unique list of languages from the list of users.
+
 
