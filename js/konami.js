@@ -226,7 +226,6 @@ $(document).ready(function() {
             audio.play();
     }
 
-
         // Unlimited Lives
 
         function activateCheats4() {
