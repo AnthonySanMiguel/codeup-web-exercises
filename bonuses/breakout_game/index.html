@@ -38,6 +38,17 @@
     // Sets ball radius for collision detection
     var ballRadius = 10;
 
+    // Paddle Size
+    var paddleHeight = 10;
+    var paddleWidth = 75;
+
+    // Paddle starting point on horizontal "x" axis
+    var paddleX = (canvas.width - paddleWidth) / 2;
+
+    // Values for key presses (left and right); default value is keys NOT pressed ("false")
+    var leftPressed = false;
+    var rightPressed = false;
+
     // ------ TEST SHAPES ------
     //
     //     // All 2D "context (ctx)" commands go between a ".beginPath()" and ".closePath()"
@@ -90,6 +101,14 @@
         ctx.closePath();
     }
 
+    function drawPaddle() {
+        ctx.beginPath();
+            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+        ctx.closePath();
+    }
+
     function draw() {
         // Clears canvas (e.g. "Rectangle" shape) and takes 4 parameters...
         // x coordinate for top left corner of rectangle
@@ -100,6 +119,9 @@
 
         // Calls drawBall function above, which includes starting x and y position on canvas
         drawBall()
+
+        // Calls drawPaddle function above, which includes starting x position on canvas
+        drawPaddle()
 
         // After object is drawn by function, x and y values will change per specified incrememnts
         x = x + dx;
@@ -121,6 +143,50 @@
             // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
         if(y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
             dy = -dy;
+        }
+
+        // If right arrow is pressed, move paddle on the "x" axis to the right by 7px (+7)
+        if(rightPressed) {
+            paddleX = paddleX + 7;
+            // If paddle position on "x" value exceeds canvas width (too much positive moving right), stop paddle by making its position the value of the canvas - paddle width
+            if (paddleX + paddleWidth > canvas.width){
+                paddleX = canvas.width - paddleWidth;
+            }
+        }
+        // If left arrow is pressed, move paddle on the "x" axis to the left by 7px (-7)
+        else if(leftPressed) {
+            paddleX = paddleX - 7;
+            // If paddle position on "x" value is LESS THAN 0 (too much negative moving left), stop paddle by making its position the value of 0 ("start" of canvas)
+            if (paddleX < 0){
+                paddleX = 0;
+            }
+        }
+    }
+
+    // Event listeners ("keydown" & "keyup" are standard)...on these actions, the respective functions (keyDownHandler or keyUpHandler) will run
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    // When we press a key down, this information is stored in the variable "key".
+        // The relevant variable in each case is set to true...
+        // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
+        function keyDownHandler(e) { // "e" equals "event" to LISTEN for
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = true;
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = true;
+        }
+    }
+
+        // When the key is released, the variable is set back to false.
+        // Most browsers use ArrowRight and ArrowLeft for the left/right cursor keys, but we need to also include Right and Left checks to support IE/Edge browsers.
+    function keyUpHandler(e) {
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = false;
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = false;
         }
     }
 
