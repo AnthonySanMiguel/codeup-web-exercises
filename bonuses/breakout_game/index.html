@@ -233,8 +233,6 @@
                     alert("GAME OVER");
                     // Reload the page on alert click
                     document.location.reload();
-                    // "clearInterval" stops our infinite "interval" from running
-                    clearInterval(interval); // Needed for Chrome to end game
                 }
                 // BUT, if there ARE lives remaining...
                 else {
@@ -264,6 +262,9 @@
                 paddleX = 0;
             }
         }
+        // Causes draw() function to call itself over and over again...and framerate control is given to the browser.
+        // The browser will sync the framerate accordingly and render the shapes only when needed (more efficient, smoother animation loop).
+        requestAnimationFrame(draw);
     }
 
     // Event listeners ("keydown" & "keyup" are standard)...on these actions, the respective functions (keyDownHandler or keyUpHandler) will run
@@ -338,8 +339,6 @@
                             alert("YOU WIN, CONGRATULATIONS!");
                             // Reload the page on alert click
                             document.location.reload();
-                            // and "clearInterval" to stop our infinite "interval" from running
-                            clearInterval(interval); // Needed for Chrome to end game
                         }
                     }
                 }
@@ -365,8 +364,7 @@
             ctx.fillText("Lives: "+lives, canvas.width-65, 20);
         }
 
-        // "setInterval" is an infinite command which will call our "draw()" function every 10 milliseconds...or until we stop it
-        let interval = setInterval(draw, 10);
+        draw();
 
 </script>
 </body>
