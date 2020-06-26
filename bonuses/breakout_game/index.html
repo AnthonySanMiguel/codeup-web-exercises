@@ -273,23 +273,38 @@
         }
     }
 
+    // LISTENS FOR MOUSE MOVEMENT
+    document.addEventListener("mousemove", mouseMoveHandler, false);
+
+    // Updates the paddle position based on the pointer coordinates
+    function mouseMoveHandler(e) {
+        // 'relativeX' is equal to the distance between the canvas left edge and the mouse pointer.
+        let relativeX = e.clientX - canvas.offsetLeft;
+        // If the 'relativeX' pointer position is greater than zero -- AND -- lower than the Canvas width...
+        if(relativeX > 0 && relativeX < canvas.width) {
+            // Then the pointer is within the Canvas boundaries, and the paddleX position (anchored on the left edge of the paddle) is set to
+            // the 'relativeX 'value minus half the width of the paddle, so that the movement will actually be relative to the middle of the paddle.
+            paddleX = relativeX - paddleWidth/2;
+        }
+    }
+
     // COLLISION DETECTION (BALL TO BRICK)
     function collisionDetection() {
-        for(let c = 0; c < brickColumnCount; c++) {
-            for(let r = 0; r < brickRowCount; r++) {
+        for (let c = 0; c < brickColumnCount; c++) {
+            for (let r = 0; r < brickRowCount; r++) {
                 let b = bricks[c][r];
                 // If the brick hit by the ball is active (status = 1) we will check whether the collision happens...
-                if(b.status == 1) {
+                if (b.status == 1) {
                     // If the center of the ball is inside the coordinates of one of our bricks...in which case ALL 4 of the following statements need to be true:
-                if(
-                   // The x position of the ball is greater than the x position of the brick.
-                   x > b.x &&
-                   // The x position of the ball is less than the x position of the brick plus its width.
-                   x < b.x + brickWidth &&
-                   // The y position of the ball is greater than the y position of the brick
-                   y > b.y &&
-                   // The x position of the ball is greater than the x position of the brick.
-                   y < b.y + brickHeight) {
+                    if (
+                        // The x position of the ball is greater than the x position of the brick.
+                        x > b.x &&
+                        // The x position of the ball is less than the x position of the brick plus its width.
+                        x < b.x + brickWidth &&
+                        // The y position of the ball is greater than the y position of the brick
+                        y > b.y &&
+                        // The x position of the ball is greater than the x position of the brick.
+                        y < b.y + brickHeight) {
                         // SUCCESSFUL COLLISION (BALL TO BRICK)
                         // If all 4 statements above are TRUE = change the direction of the ball...
                         dy = -dy;
@@ -297,33 +312,34 @@
                         b.status = 0;
                         // ...and increment the score by 1
                         score++;
-                    // If all bricks are successfully hit (score = brickRowCount x brickColumnCount)...
-                    if(score == brickRowCount * brickColumnCount) {
-                        // Display a winning message alert
-                        alert("YOU WIN, CONGRATULATIONS!");
-                        // Reload the page on alert click
-                        document.location.reload();
-                        // and "clearInterval" to stop our infinite "interval" from running
-                        clearInterval(interval); // Needed for Chrome to end game
+                        // If all bricks are successfully hit (score = brickRowCount x brickColumnCount)...
+                        if (score == brickRowCount * brickColumnCount) {
+                            // Display a winning message alert
+                            alert("YOU WIN, CONGRATULATIONS!");
+                            // Reload the page on alert click
+                            document.location.reload();
+                            // and "clearInterval" to stop our infinite "interval" from running
+                            clearInterval(interval); // Needed for Chrome to end game
+                        }
                     }
                 }
             }
         }
     }
 
-    //Renders score on canvas
-    function drawScore() {
-        ctx.font = "16px Arial";
-        ctx.fillStyle = "#0095DD";
-        // Takes 3 parameters:
-        // The actual text itself ('score' variable starting at 0)
-        // The "x" coordinate for the text
-        // The "y" coordinate for the text
-        ctx.fillText("Score: " + score, 8, 20);
-    }
+        //Renders score on canvas
+        function drawScore() {
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#0095DD";
+            // Takes 3 parameters:
+            // The actual text itself ('score' variable starting at 0)
+            // The "x" coordinate for the text
+            // The "y" coordinate for the text
+            ctx.fillText("Score: " + score, 8, 20);
+        }
 
-    // "setInterval" is an infinite command which will call our "draw()" function every 10 milliseconds...or until we stop it
-    let interval = setInterval(draw, 10);
+        // "setInterval" is an infinite command which will call our "draw()" function every 10 milliseconds...or until we stop it
+        let interval = setInterval(draw, 10);
 
 </script>
 </body>
