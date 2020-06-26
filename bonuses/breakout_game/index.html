@@ -22,32 +22,63 @@
 <script>
 
     // Creates JS variable for "canvas" as selected by HTML id
-    var canvas = document.getElementById("myCanvas");
+    let canvas = document.getElementById("myCanvas");
 
     // Creates variable to store 2D rendering context (tool to "paint" on our canvas)
-    var ctx = canvas.getContext("2d");
+    let ctx = canvas.getContext("2d");
 
     // Establish starting position (coordinates) of object created by "draw()" function
-    var x = canvas.width/2;
-    var y = canvas.height-30;
+    let x = canvas.width/2;
+    let y = canvas.height-30;
 
     // Will add incremental changes to x and y coordinates after every frame change
-    var dx = 2;
-    var dy = -2;
+    let dx = 2;
+    let dy = -2;
 
     // Sets ball radius for collision detection
-    var ballRadius = 10;
+    let ballRadius = 10;
 
     // Paddle Size
-    var paddleHeight = 10;
-    var paddleWidth = 75;
+    let paddleHeight = 10;
+    let paddleWidth = 75;
 
     // Paddle starting point on horizontal "x" axis
-    var paddleX = (canvas.width - paddleWidth) / 2;
+    let paddleX = (canvas.width - paddleWidth) / 2;
 
     // Values for key presses (left and right); default value is keys NOT pressed ("false")
-    var leftPressed = false;
-    var rightPressed = false;
+    let leftPressed = false;
+    let rightPressed = false;
+
+    // BRICK FIELD MEASUREMENTS:
+        // number of rows
+        let brickRowCount = 3;
+        // number of columns
+        let brickColumnCount = 5;
+        // brick width
+        let brickWidth = 75;
+        // brick height
+        let brickHeight = 20;
+        // padding around each brick
+        let brickPadding = 10;
+        // offset from top of canvas by 30
+        let brickOffsetTop = 30;
+        // offset from left of canvas by 30
+        let brickOffsetLeft = 30;
+
+    // BRICK ARRAY AND COLUMN/ROW LOOPS:
+    // 2-dimensional array named "bricks" will hold all bricks made
+    let bricks = [];
+    // Loop through array and start with column(c) @ "0"
+    for(let c = 0; c < brickColumnCount; c++) {
+        bricks[c] = [];
+        // Loop through array and start with row(r) @ "0"
+        for(let r = 0; r < brickRowCount; r++) {
+            bricks[c][r] = {
+                x: 0,
+                y: 0
+            };
+        }
+    }
 
     // ------ TEST SHAPES ------
     //
@@ -109,6 +140,26 @@
         ctx.closePath();
     }
 
+    function drawBricks() {
+        for(let c = 0; c < brickColumnCount; c++) {
+            for(let r = 0; r < brickRowCount; r++) {
+                // Each brickX position is worked out as brickWidth + brickPadding, multiplied by the column number, c, plus the brickOffsetLeft
+                // The logic for the brickY is identical except that it uses the values for row number, r, brickHeight, and brickOffsetTop.
+                    // Now every single brick can be placed in its correct place row and column, with padding between each brick, drawn at an offset from the left and top canvas edges.
+                let brickX = (c*(brickWidth+brickPadding)) + brickOffsetLeft;
+                let brickY = (r*(brickHeight+brickPadding)) + brickOffsetTop;
+                bricks[c][r].x = brickX;
+                bricks[c][r].y = brickY;
+
+                ctx.beginPath();
+                    ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                    ctx.fillStyle = "#0095DD";
+                    ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+
     function draw() {
         // Clears canvas (e.g. "Rectangle" shape) and takes 4 parameters...
         // x coordinate for top left corner of rectangle
@@ -116,6 +167,9 @@
         // x coordinate for bottom right corner of rectangle
         // y coordinate for bottom right corner of rectangle
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Calls drawBricks function above, which will loop through bricks array and draw bricks with padding between on canvas
+        drawBricks();
 
         // Calls drawBall function above, which includes starting x and y position on canvas
         drawBall()
@@ -207,7 +261,7 @@
     }
 
     // "setInterval" is an infinite command which will call our "draw()" function every 10 milliseconds...or until we stop it
-    var interval = setInterval(draw, 10);
+    let interval = setInterval(draw, 10);
 
 </script>
 </body>
