@@ -130,19 +130,35 @@
         // COLLISION DETECTION:
 
         // KEEP BALL WITHIN CANVAS BOUNDARIES:
-            // If the "x" coordinate of the ball RADIUS (circumference; not center) on the [horizontal axis] exceeds the canvas WIDTH -- OR -- is less than 0...REVERSE the movement (e.g. increment [2] or decrement [-2] "dx" variable as needed)
+            // If the "x" coordinate of the ball's RADIUS (circumference; not center) on the [horizontal axis] exceeds the canvas WIDTH -- OR -- is less than 0...REVERSE the movement (e.g. increment [2] or decrement [-2] "dx" variable as needed)
         // KEEP BALL FROM "BLENDING" INTO WALLS ON COLLISION:
             // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
         if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
             dx = -dx;
         }
-
         // KEEP BALL WITHIN CANVAS BOUNDARIES:
-            // If the "y" coordinate of the ball RADIUS (circumference; not center) on the [vertical axis] exceeds the canvas HEIGHT -- OR -- is less than 0...REVERSE the movement (e.g. increment or decrement [-2] "dy" variable as needed)
+            // If the "y" coordinate of the ball's RADIUS (circumference; not center) on the [vertical axis] is less than 10 (see ballRadius value)...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
+        if(y + dy < ballRadius) {
+            dy = -dy;
+            // OR if the "y" coordinate of the ball's RADIUS (circumference; not center) on the [vertical axis] exceeds the canvas HEIGHT...
         // KEEP BALL FROM "BLENDING" INTO WALLS ON COLLISION:
             // When the distance between the center of the ball and the edge of the wall is exactly the same as the radius of the ball, reverse movement direction as above. Subtracting the radius from one edge's width and adding it onto the other gives us the impression of the proper collision detection.
-        if(y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
-            dy = -dy;
+        } else if(y + dy > canvas.height - ballRadius) {
+        // COLLISION DETECTION (Ball to Paddle):
+            // Check whether the center of the ball (x) is between the left (x > paddleX) AND right (x < paddleX + paddleWidth) edges of the paddle.
+            if(x > paddleX && x < paddleX + paddleWidth) {
+                // ...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
+                dy = -dy;
+            }
+            // If ball does not touch paddle and touches bottom canvas boundary...
+            else {
+                // Alert message of "Game Over"
+                alert("GAME OVER");
+                // Reload the page
+                document.location.reload();
+                // "clearInterval" stops our infinite "interval" from running
+                clearInterval(interval);
+            }
         }
 
         // If right arrow is pressed, move paddle on the "x" axis to the right by 7px (+7)
@@ -191,7 +207,7 @@
     }
 
     // "setInterval" is an infinite command which will call our "draw()" function every 10 milliseconds...or until we stop it
-    setInterval(draw, 10);
+    var interval = setInterval(draw, 10);
 
 </script>
 </body>
