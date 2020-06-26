@@ -49,6 +49,9 @@
     let leftPressed = false;
     let rightPressed = false;
 
+    // Starting player score
+    let score = 0;
+
     // BRICK FIELD MEASUREMENTS:
         // number of rows
         let brickRowCount = 3;
@@ -181,6 +184,9 @@
         // Calls drawPaddle() function above, which includes starting x position on canvas
         drawPaddle()
 
+        // Calls the drawScore() function below, which will display the starting score of 0 and add 1 for every successful brick collision
+        drawScore();
+
         // Calls collisionDetection() function below, which will check for a collision each frame between the ball and bricks
         collisionDetection();
 
@@ -215,7 +221,7 @@
             else {
                 // Alert message of "Game Over"
                 alert("GAME OVER");
-                // Reload the page
+                // Reload the page on alert click
                 document.location.reload();
                 // "clearInterval" stops our infinite "interval" from running
                 clearInterval(interval);
@@ -287,12 +293,33 @@
                         // SUCCESSFUL COLLISION (BALL TO BRICK)
                         // If all 4 statements above are TRUE = change the direction of the ball...
                         dy = -dy;
-                        // and set the brick's status to 0 so it won't be painted on the screen.
+                        // ...set the brick's status to 0 so it won't be painted on the screen.
                         b.status = 0;
+                        // ...and increment the score by 1
+                        score++;
+                    // If all bricks are successfully hit (score = brickRowCount x brickColumnCount)...
+                    if(score == brickRowCount * brickColumnCount) {
+                        // Display a winning message alert
+                        alert("YOU WIN, CONGRATULATIONS!");
+                        // Reload the page on alert click
+                        document.location.reload();
+                        // and "clearInterval" to stop our infinite "interval" from running
+                        clearInterval(interval); // Needed for Chrome to end game
                     }
                 }
             }
         }
+    }
+
+    //Renders score on canvas
+    function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        // Takes 3 parameters:
+        // The actual text itself ('score' variable starting at 0)
+        // The "x" coordinate for the text
+        // The "y" coordinate for the text
+        ctx.fillText("Score: " + score, 8, 20);
     }
 
     // "setInterval" is an infinite command which will call our "draw()" function every 10 milliseconds...or until we stop it
