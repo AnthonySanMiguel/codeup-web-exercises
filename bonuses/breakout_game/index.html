@@ -52,6 +52,9 @@
     // Starting player score
     let score = 0;
 
+    // Starting player lives
+    let lives = 3;
+
     // BRICK FIELD MEASUREMENTS:
         // number of rows
         let brickRowCount = 3;
@@ -187,10 +190,13 @@
         // Calls the drawScore() function below, which will display the starting score of 0 and add 1 for every successful brick collision
         drawScore();
 
+        // Calls the drawLives() function below, which will display the starting number of lives and subtract 1 everytime the ball hits the bottom boundary
+        drawLives();
+
         // Calls collisionDetection() function below, which will check for a collision each frame between the ball and bricks
         collisionDetection();
 
-        // After object is drawn by function, x and y values will change per specified incrememnts
+        // After object is drawn by function, x and y values will change per specified increments
         x = x + dx;
         y = y + dy;
 
@@ -217,14 +223,28 @@
                 // ...REVERSE the movement (e.g. increment [2] or decrement [-2] "dy" variable as needed)
                 dy = -dy;
             }
-            // If ball does not touch paddle and touches bottom canvas boundary...
+            // If THE ball does NOT touch the paddle and hits the bottom canvas boundary...
             else {
-                // Alert message of "Game Over"
-                alert("GAME OVER");
-                // Reload the page on alert click
-                document.location.reload();
-                // "clearInterval" stops our infinite "interval" from running
-                clearInterval(interval);
+                // Subtract -1 from 'lives' variable
+                lives--;
+                // If no lives remaining...
+                if (!lives) {
+                    // Alert message of "Game Over"
+                    alert("GAME OVER");
+                    // Reload the page on alert click
+                    document.location.reload();
+                    // "clearInterval" stops our infinite "interval" from running
+                    clearInterval(interval); // Needed for Chrome to end game
+                }
+                // BUT, if there ARE lives remaining...
+                else {
+                    // Reset the position of the ball and paddle, along with the movement of the ball
+                    x = canvas.width / 2;
+                    y = canvas.height - 30;
+                    dx = 2;
+                    dy = -2;
+                    paddleX = (canvas.width - paddleWidth) / 2;
+                }
             }
         }
 
@@ -327,7 +347,7 @@
         }
     }
 
-        //Renders score on canvas
+        // Renders score on canvas
         function drawScore() {
             ctx.font = "16px Arial";
             ctx.fillStyle = "#0095DD";
@@ -336,6 +356,13 @@
             // The "x" coordinate for the text
             // The "y" coordinate for the text
             ctx.fillText("Score: " + score, 8, 20);
+        }
+
+        // Renders lives on canvas
+        function drawLives() {
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText("Lives: "+lives, canvas.width-65, 20);
         }
 
         // "setInterval" is an infinite command which will call our "draw()" function every 10 milliseconds...or until we stop it
