@@ -75,7 +75,8 @@
         for(let r = 0; r < brickRowCount; r++) {
             bricks[c][r] = {
                 x: 0,
-                y: 0
+                y: 0,
+                status: 1
             };
         }
     }
@@ -143,19 +144,22 @@
     function drawBricks() {
         for(let c = 0; c < brickColumnCount; c++) {
             for(let r = 0; r < brickRowCount; r++) {
-                // Each brickX position is worked out as brickWidth + brickPadding, multiplied by the column number, c, plus the brickOffsetLeft
-                // The logic for the brickY is identical except that it uses the values for row number, r, brickHeight, and brickOffsetTop.
-                    // Now every single brick can be placed in its correct place row and column, with padding between each brick, drawn at an offset from the left and top canvas edges.
-                let brickX = (c*(brickWidth+brickPadding)) + brickOffsetLeft;
-                let brickY = (r*(brickHeight+brickPadding)) + brickOffsetTop;
-                bricks[c][r].x = brickX;
-                bricks[c][r].y = brickY;
+                // Check the value of each brick's status before drawing it —> if status = 1, draw it; if status = 0, then the brick was hit by the ball and we don't want it on screen anymore.
+                if(bricks[c][r].status == 1) {
+                    // Each brickX position is worked out as brickWidth + brickPadding, multiplied by the column number, c, plus the brickOffsetLeft
+                    // The logic for the brickY is identical except that it uses the values for row number, r, brickHeight, and brickOffsetTop.
+                        // Now every single brick can be placed in its correct place row and column, with padding between each brick, drawn at an offset from the left and top canvas edges.
+                    let brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+                    let brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+                    bricks[c][r].x = brickX;
+                    bricks[c][r].y = brickY;
 
-                ctx.beginPath();
+                    ctx.beginPath();
                     ctx.rect(brickX, brickY, brickWidth, brickHeight);
                     ctx.fillStyle = "#0095DD";
                     ctx.fill();
-                ctx.closePath();
+                    ctx.closePath();
+                }
             }
         }
     }
@@ -168,14 +172,17 @@
         // y coordinate for bottom right corner of rectangle
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Calls drawBricks function above, which will loop through bricks array and draw bricks with padding between on canvas
+        // Calls drawBricks() function above, which will loop through bricks array and draw bricks with padding between on canvas
         drawBricks();
 
-        // Calls drawBall function above, which includes starting x and y position on canvas
+        // Calls drawBall() function above, which includes starting x and y position on canvas
         drawBall()
 
-        // Calls drawPaddle function above, which includes starting x position on canvas
+        // Calls drawPaddle() function above, which includes starting x position on canvas
         drawPaddle()
+
+        // Calls collisionDetection() function below, which will check for a collision each frame between the ball and bricks
+        collisionDetection();
 
         // After object is drawn by function, x and y values will change per specified incrememnts
         x = x + dx;
@@ -257,6 +264,34 @@
         }
         else if(e.key == "Left" || e.key == "ArrowLeft") {
             leftPressed = false;
+        }
+    }
+
+    // COLLISION DETECTION (BALL TO BRICK)
+    function collisionDetection() {
+        for(let c = 0; c < brickColumnCount; c++) {
+            for(let r = 0; r < brickRowCount; r++) {
+                let b = bricks[c][r];
+                // If the brick hit by the ball is active (status = 1) we will check whether the collision happens...
+                if(b.status == 1) {
+                    // If the center of the ball is inside the coordinates of one of our bricks...in which case ALL 4 of the following statements need to be true:
+                if(
+                   // The x position of the ball is greater than the x position of the brick.
+                   x > b.x &&
+                   // The x position of the ball is less than the x position of the brick plus its width.
+                   x < b.x + brickWidth &&
+                   // The y position of the ball is greater than the y position of the brick
+                   y > b.y &&
+                   // The x position of the ball is greater than the x position of the brick.
+                   y < b.y + brickHeight) {
+                        // SUCCESSFUL COLLISION (BALL TO BRICK)
+                        // If all 4 statements above are TRUE = change the direction of the ball...
+                        dy = -dy;
+                        // and set the brick's status to 0 so it won't be painted on the screen.
+                        b.status = 0;
+                    }
+                }
+            }
         }
     }
 
