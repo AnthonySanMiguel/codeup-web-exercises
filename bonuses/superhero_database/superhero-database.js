@@ -24,8 +24,8 @@ let superheroes = [
     {name:"The Punisher", publisher:"Marvel", alterEgo:"Frank Castle", firstAppearance:"The Amazing Spider-Man #129", characters:"Microchip", img: '<img src="classified.jpg" class="card-picture" alt="" onclick="this.src=`punisher.gif`"/>', btn: '<button id="punisher-btn">Analyze</button>'}
     ];
 
-function renderCoffee(x) {
-    let html = '<div style="border: 12px solid lightslategray; border-radius: 15px; margin: 0 0 1em 0; background-color: linen;">';
+function renderHeroCard(x) {
+    let html = '<div style="border: 10px solid lightslategray; border-radius: 15px; margin: 0 0 1em 0; background-color: linen;">';
     html = html + '<div style="color: red; margin: 5px 0 5px 0; font-size: 1em;">' + 'Subject:' + '</div>';
     html = html + '<h3 style="margin: .5em 0 .5em 0; font-size: 1.5em"><em>' + x.name + '</em></h3>';
     html = html + '<span>' + x.img + '</span>';
@@ -38,38 +38,38 @@ function renderCoffee(x) {
     return html;
 }
 
-function renderCoffees(superheroes) {
+function renderHeroCards(superheroes) {
     let html = '';
     for (let i = superheroes.length - 1; i >= 0; i--){
-        html = html + renderCoffee(superheroes[i]);
+        html = html + renderHeroCard(superheroes[i]);
     }
     return html;
 }
 
 function updateSuperHeroesDropDown(e) { // Dynamically adjusts display based on roast type selected in dropdown
     e.preventDefault(); // don't submit the form, we just want to update the data
-    let selectedRoast = publisherSelection.value;
-    let filteredCoffees = [];
+    let selectedPublisher = publisherSelection.value;
+    let filteredHeroes = [];
     superheroes.forEach(function(superhero) {
-        if (superhero.publisher === selectedRoast) {
-            filteredCoffees.push(superhero);
+        if (superhero.publisher === selectedPublisher) {
+            filteredHeroes.push(superhero);
         }
-        console.log(superhero.publisher === selectedRoast);
+        console.log(superhero.publisher === selectedPublisher);
 
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    tbody.innerHTML = renderHeroCards(filteredHeroes);
 }
 
 function updateSuperHeroesSearch(e) { // Dynamically adjusts display based on letters typed in search bar
     e.preventDefault(); // don't submit the form, we just want to update the data
-    let selectedCoffee = searchBar.value;
-    let filteredCoffees = [];
+    let selectedPublisher = searchBar.value;
+    let filteredHeroes = [];
     superheroes.filter(function(superheroes) {
-        if (superheroes.name.toLowerCase().match(selectedCoffee) || superheroes.alterEgo.toLowerCase().match(selectedCoffee) || superheroes.characters.toLowerCase().match(selectedCoffee) || superheroes.publisher.toLowerCase().match(selectedCoffee) || superheroes.firstAppearance.toLowerCase().match(selectedCoffee)) {
-            filteredCoffees.push(superheroes);
+        if (superheroes.name.toLowerCase().match(selectedPublisher) || superheroes.alterEgo.toLowerCase().match(selectedPublisher) || superheroes.characters.toLowerCase().match(selectedPublisher) || superheroes.publisher.toLowerCase().match(selectedPublisher) || superheroes.firstAppearance.toLowerCase().match(selectedPublisher)) {
+            filteredHeroes.push(superheroes);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    tbody.innerHTML = renderHeroCards(filteredHeroes);
 }
 
 superheroes.reverse();
@@ -78,7 +78,7 @@ let submitButton = document.querySelector('#submit');
 let searchBar = document.querySelector('#search');
 let publisherSelection = document.querySelector('#publisher-selection');
 
-tbody.innerHTML = renderCoffees(superheroes);
+tbody.innerHTML = renderHeroCards(superheroes);
 
 searchBar.addEventListener('keyup', updateSuperHeroesSearch);
 submitButton.addEventListener('click', updateSuperHeroesDropDown);
@@ -116,7 +116,7 @@ document.getElementById('flash-btn').addEventListener('click', analyze_flash);
 
 // Green Lantern
 const analyze_green_lantern = () => {
-    return computerSpeak('With the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Abin Sur. He later on went to creating his own power ring from his own will power. Through sheer will power and determination, Hal has established an impressive record of heroism across the galaxy with the help of his fellow Green Lanterns as well as his peers in the Justice League.', 0);
+    return computerSpeak('With the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Ah Bin Sure. He later on went to creating his own power ring from his own will power. Through sheer will power and determination, Hal has established an impressive record of heroism across the galaxy with the help of his fellow Green Lanterns as well as his peers in the Justice League.', 0);
 };
 document.getElementById('green_lantern-btn').addEventListener('click', analyze_green_lantern);
 
@@ -128,25 +128,25 @@ document.getElementById('green_arrow-btn').addEventListener('click', analyze_gre
 
 // Wonder Woman
 const analyze_wonder_woman = () => {
-    return computerSpeak('The princess of the Amazons, armed with superpowers of a god, Wonder Woman is one of Earth\'s most powerful defenders of peace, justice, and equality and a member of the Justice League.', 0);
+    return computerSpeak('The princess of the Amazons, armed with superpowers of a god, Wonder Woman is one of Earths most powerful defenders of peace, justice, and equality and a member of the Justice League.', 0);
 };
 document.getElementById('wonder_woman-btn').addEventListener('click', analyze_wonder_woman);
 
 // Martian Manhunter
 const analyze_martian_manhunter = () => {
-    return computerSpeak('Sole survivor of the Martian people, J\'onn J\'onzz was teleported to Earth decades ago by Dr. Saul Erdel. Since then, he has adopted Earth as his new home, playing many roles over his time with humanity: detective, secret agent, explorer, and even a founding member of the Justice League.', 0);
+    return computerSpeak('Sole survivor of the Martian people, John Jones was teleported to Earth decades ago by Dr. Saul Err Dell. Since then, he has adopted Earth as his new home, playing many roles over his time with humanity: detective, secret agent, explorer, and even a founding member of the Justice League.', 0);
 };
 document.getElementById('martian_manhunter-btn').addEventListener('click', analyze_martian_manhunter);
 
 // Robin/Nightwing
 const analyze_nightwing = () => {
-    return computerSpeak('After falling out with Batman, Dick Grayson left the Dark Knight\'s side to become a more regular member of the Teen Titans. Inspired by the story of Superman\'s visit to Kandor, Dick chose to take up his own variant of the Nightwing alias.', 0);
+    return computerSpeak('After falling out with Batman, Dick Grayson left the Dark Knights side to become a more regular member of the Teen Titans. Inspired by the story of Supermans visit to Kandor, Dick chose to take up his own variant of the Nightwing alias.', 0);
 };
 document.getElementById('nightwing-btn').addEventListener('click', analyze_nightwing);
 
 // Blue Beetle
 const analyze_blue_beetle = () => {
-    return computerSpeak('an archaeologist who gains powers from a Blue Beetle Scarab found in Egypt.', 0);
+    return computerSpeak('An archaeologist who gains powers from a Blue Beetle Scarab found in Egypt.', 0);
 };
 document.getElementById('blue_beetle-btn').addEventListener('click', analyze_blue_beetle);
 
@@ -170,25 +170,25 @@ document.getElementById('captain_america-btn').addEventListener('click', analyze
 
 // Iron Man
 const analyze_iron_man = () => {
-    return computerSpeak('Tony uses his vast resources and intellect to make the world a better place as The Invincible Iron Man. Stark\'s super hero identity led him to become a founding member of the Avengers.', 0);
+    return computerSpeak('Tony uses his vast resources and intellect to make the world a better place as The Invincible Iron Man. Starks super hero identity led him to become a founding member of the Avengers.', 0);
 };
 document.getElementById('iron_man-btn').addEventListener('click', analyze_iron_man);
 
 // Thor
 const analyze_thor = () => {
-    return computerSpeak('Thor Odinson is the All-father of Asgard /God of Thunder, offspring of All-Father Odin & the Elder Earth-Goddess Gaea. Combining the powers of both realms makes him an elder-god hybrid and a being of limitless potential. Armed with his enchanted Uru hammer Mjolnir which helps him to channel his godly energies. The mightiest and the most beloved warrior in all of Asgard, a staunch ally for good and one of the most powerful beings in the multiverse/omniverse. Thor is also a founding member of the Avengers.', 0);
+    return computerSpeak('Thor O Din Son is the All-father of As Guard, God of Thunder, offspring of All-Father O Din & the Elder Earth-Goddess Guy Uh. Combining the powers of both realms makes him an elder-god hybrid and a being of limitless potential. Armed with his enchanted Uru hammer Mjolnir which helps him to channel his godly energies. The mightiest and the most beloved warrior in all of Asgard, a staunch ally for good and one of the most powerful beings in the multiverse/omniverse. Thor is also a founding member of the Avengers.', 0);
 };
 document.getElementById('thor-btn').addEventListener('click', analyze_thor);
 
 // Hulk
 const analyze_hulk = () => {
-    return computerSpeak('After being bombarded with a massive dose of gamma radiation while saving a young man\'s life during the testing of an experimental bomb, Dr. Robert Bruce Banner was transformed into the Incredible Hulk: a green behemoth who is the living personification of rage and pure physical strength.', 0);
+    return computerSpeak('After being bombarded with a massive dose of gamma radiation while saving a young mans life during the testing of an experimental bomb, Dr. Robert Bruce Banner was transformed into the Incredible Hulk: a green behemoth who is the living personification of rage and pure physical strength.', 0);
 };
 document.getElementById('hulk-btn').addEventListener('click', analyze_hulk);
 
 // Wolverine
 const analyze_wolverine = () => {
-    return computerSpeak('James Logan Howlets once mysterious past is filled with blood, war and betrayal. Possessing an accelerated healing factor, keenly enhanced senses, and bone claws in each hand (along with his skeleton) that are coated in ad uh man tee um; Wolverine is, without question, the ultimate weapon.', 0);
+    return computerSpeak('James Low Gun Howl Lets once mysterious past is filled with blood, war and betrayal. Possessing an accelerated healing factor, keenly enhanced senses, and bone claws in each hand (along with his skeleton) that are coated in ad uh man tee um; Wolverine is, without question, the ultimate weapon.', 0);
 };
 document.getElementById('wolverine-btn').addEventListener('click', analyze_wolverine);
 
@@ -212,7 +212,7 @@ document.getElementById('cyclops-btn').addEventListener('click', analyze_cyclops
 
 // Silver Surfer
 const analyze_silver_surfer = () => {
-    return computerSpeak('Norrin Radd of Zenn-La is the mighty herald of Galactus, the devourer of worlds. Gifted with the Power Cosmic and a trusty board thats faster than light speed which he can summon at will whenever needed, Norrin Radd travels to distant stars and throughout the universe as the Silver Surfer.', 0);
+    return computerSpeak('Norrin Radd of Zen La is the mighty herald of Gal Act Us, the devourer of worlds. Gifted with the Power Cosmic and a trusty board thats faster than light speed which he can summon at will whenever needed, Norrin Radd travels to distant stars and throughout the universe as the Silver Surfer.', 0);
 };
 document.getElementById('silver_surfer-btn').addEventListener('click', analyze_silver_surfer);
 
