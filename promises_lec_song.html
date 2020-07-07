@@ -72,14 +72,9 @@
     }
     //
     const singPromises = () => {
-        return singLyrics('All', .5)
-            .then(() => singLyrics('around', 1))
-            .then(() => singLyrics(' the mulberry', 1.5))
-            .then(() => singLyrics(' bush', 1))
-            .then(() => singLyrics(' the monkey', .5))
-            .then(() => singLyrics(' chased', 1))
-            .then(() => singLyrics(' the wea-', 1.5))
-            .then(() => singLyrics(' sel', 1));
+        return singLyrics('I', .5)
+            .then(() => singLyrics('love', 1))
+            .then(() => singLyrics(' them', 1.5));
     };
 
     document.getElementById('sing-btn').addEventListener('click', singPromises);
